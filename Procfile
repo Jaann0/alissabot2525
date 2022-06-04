@@ -1,1 +1,1 @@
-worker: python alissabot.py
+web: python alissabot.py
