@@ -1,5 +1,4 @@
 from edamino import Bot, Context
-from ezgiphy import GiphyPublicAPI
 import requests
 import json
 import sqlite3
