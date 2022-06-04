@@ -48,11 +48,5 @@ async def on_miembros(ctx: Context):
 	await ctx.send(member)
 	conex.close()
 
-@bot.command("gif")
-async def on_gif(ctx: Context):
-	giphy = GiphyPublicAPI('dc6zaTOxFJmzC')
-	a = giphy.search(q='madonna',limit=5,rating='g')
-	print(a)
-
 
 bot.start()
