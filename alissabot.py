@@ -19,13 +19,13 @@ async def on_hola(ctx: Context):
 
 @bot.command("sh")
 async def on_superheroe(ctx: Context):
-	manteca = ctx.msg.content[12:30]
+	manteca = ctx.msg.content[5:30]
 	res = requests.get("https://www.superheroapi.com/api.php/1282131145540058/search/" + manteca)
 	data = res.json()
 	img = data["results"][0]["image"]["url"]
 	imagen = await ctx.download_from_link(img)
 	await ctx.send_image(imagen)
-	print(ctx.msg.author.nickname + " invoco a un super heroe.")
+	print(ctx.msg.author.nickname + " invoco a un super heroe." + ctx.msg.author.uid)
 
 @bot.command("registrarme")
 async def on_registro(ctx: Context):
@@ -40,13 +40,16 @@ async def on_registro(ctx: Context):
 
 @bot.command("miembros")
 async def on_miembros(ctx: Context):
-	conex = sqlite3.connect("aminodb.db")
-	curzor = conex.cursor()
-	curzor.execute("SELECT * FROM usuarios")
-	user = curzor.fetchone()
-	member = " ".join(map(str, user))
-	await ctx.send(member)
-	conex.close()
+	if ctx.msg.author.uid == "fc83578c-706a-44ef-bc2a-e2c119f2fe92":
+		conex = sqlite3.connect("aminodb.db")
+		curzor = conex.cursor()
+		curzor.execute("SELECT * FROM usuarios")
+		user = curzor.fetchall()
+		member = " ".join(map(str, user))
+		await ctx.send(member)
+		conex.close()
+	else:
+		await ctx.reply("No tiene el permiso necesario.")
 
 
 bot.start()
