@@ -55,7 +55,7 @@ async def on_pokedex(ctx: Context):
 	olaf = ctx.msg.content[9:20]
 	poke = requests.get("https://pokeapi.co/api/v2/pokemon/" + olaf)
 	alf = poke.json()
-	pokemon = alf["sprite"]["front_default"]
+	pokemon = alf["sprites"]["front_default"]
 	pika = await ctx.download_from_link(pokemon)
 	await ctx.send_image(pika)
 
