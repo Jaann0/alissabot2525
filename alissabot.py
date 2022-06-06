@@ -51,5 +51,13 @@ async def on_miembros(ctx: Context):
 	else:
 		await ctx.reply("No tiene el permiso necesario.")
 
+@bot.command("pokedex")
+async def on_pokedex(ctx: Context):
+	olaf = ctx.msg.content[9:20]
+	poke = requests.get("https://pokeapi.co/api/v2/pokemon/" + olaf)
+	dex = poke.json()
+	sprite = dex["sprite"]["front_default"]
+	pokemon = await ctx.download_from_link(sprite)
+	await ctx.send_image(pokemon)
 
 bot.start()
