@@ -78,8 +78,8 @@ async def on_song(ctx: Context):
 }
 	response = requests.request("Get", url, headers=headers, params=querystring)
 	data = response.json()
-	pikachu = data["link"]
-	adio = await ctx.download_from_link(str(pikachu))
+	pikachu = data["title"]
+	adio = await ctx.download_from_link(pikachu)
 	await ctx.send_audio(adio)
 
 @bot.command("play")
