@@ -81,11 +81,9 @@ async def on_song(ctx: Context):
 	urlo = data["link"]
 	titulo = data["title"]
 	duracion = data["duration"]
-	if str(int(duracion)) =< 180:
-		adio = await ctx.download_from_link(urlo)
-		await ctx.send_audio(adio)
-	else:
-		await ctx.send("La cancion excede la duracion de audio en amino (3min)")
+	adio = await ctx.download_from_link(urlo)
+	await ctx.send_audio(adio)
+	await ctx.send("La cancion excede la duracion de audio en amino (3min)")
 
 @bot.command("play")
 async def on_video(ctx: Context):
