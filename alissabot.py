@@ -76,11 +76,11 @@ async def on_song(ctx: Context):
 		"X-RapidAPI-Host": "youtube-mp3-download1.p.rapidapi.com",
 		"X-RapidAPI-Key": "082395124cmsh8f011e89c74584fp1b5c87jsn52b9ca1173b4"
 }
-	response = requests.get(url, headers=headers, params=querystring)
+	response = requests.request("Get", url, headers=headers, params=querystring)
 	data = response.json()
 	url = data["link"]
 	titulo = data["title"]
-	duracion = data["duration"]
+	duracion = data["duration"[0:2]]
 	if duracion <= 180:
 		adio = await ctx.download_from_link(url)
 		await ctx.send_audio(adio)
@@ -92,6 +92,6 @@ async def on_song(ctx: Context):
 async def on_video(ctx: Context):
 	bg = open("media/319_Familiar-Wife-Poster.jpg", "rb")
 	avi = open("media/TWICE.mp4", "rb")
-	await ctx.play_video(bg, avi, "Demo Video", 0.03, "b85f8eed-15dd-099a-12d9-a7d983b54f74", 6872133)
+	await ctx.play_video(bg, avi, "Demo Video", 0.3, "b85f8eed-15dd-099a-12d9-a7d983b54f74", 6872133)
 
 bot.start()
