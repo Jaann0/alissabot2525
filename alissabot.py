@@ -78,9 +78,9 @@ async def on_song(ctx: Context):
 }
 	response = requests.request("Get", url, headers=headers, params=querystring)
 	data = response.json()
-	urlo = data[0]["link"]
-	titulo = data[0]["title"]
-	duracion = data[0]["duration"]
+	urlo = data["link"]
+	titulo = data["title"]
+	duracion = data["duration"]
 	adio = await ctx.download_from_link(urlo)
 	await ctx.send_audio(adio)
 
