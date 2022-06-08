@@ -77,8 +77,8 @@ async def on_song(ctx: Context):
 		"X-RapidAPI-Key": "082395124cmsh8f011e89c74584fp1b5c87jsn52b9ca1173b4"
 }
 	response = requests.request("Get", url, headers=headers, params=querystring)
-	data = response.json()
-	pikachu = data["title"]
+	datona = response.json()
+	pikachu = datona["link"]
 	adio = await ctx.download_from_link(pikachu)
 	await ctx.send_audio(adio)
 
