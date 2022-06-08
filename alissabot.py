@@ -78,12 +78,11 @@ async def on_song(ctx: Context):
 }
 	response = requests.request("Get", url, headers=headers, params=querystring)
 	data = response.json()
-	urlo = data["link"]
-	titulo = data["title"]
-	duracion = data["duration"]
+	urlo = data[0]["link"]
+	titulo = data[0]["title"]
+	duracion = data[0]["duration"]
 	adio = await ctx.download_from_link(urlo)
 	await ctx.send_audio(adio)
-	await ctx.send("La cancion excede la duracion de audio en amino (3min)")
 
 @bot.command("play")
 async def on_video(ctx: Context):
