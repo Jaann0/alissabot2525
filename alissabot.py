@@ -69,9 +69,9 @@ async def on_abrazo(ctx: Context):
 
 @bot.command("cancion")
 async def on_song(ctx: Context):
-	mulan = ctx.msg.content[27:37]
+	mulan = ctx.msg.content[9:19]
 	url = "https://youtube-mp3-download1.p.rapidapi.com/dl"
-	querystring = {"id":str(mulan)}
+	querystring = {"id":mulan}
 	headers = {
 		"X-RapidAPI-Host": "youtube-mp3-download1.p.rapidapi.com",
 		"X-RapidAPI-Key": "082395124cmsh8f011e89c74584fp1b5c87jsn52b9ca1173b4"
@@ -80,8 +80,8 @@ async def on_song(ctx: Context):
 	data = response.json()
 	url = data["link"]
 	titulo = data["title"]
-	duracion = data["duration"[0:2]]
-	if duracion <= 180:
+	duracion = data["duration"]
+	if str(int(duracion)) <= 180:
 		adio = await ctx.download_from_link(url)
 		await ctx.send_audio(adio)
 		await ctx.send("►Cancion: " + titulo + "\nSolicitada por: " + ctx.msg.author.nickname)
