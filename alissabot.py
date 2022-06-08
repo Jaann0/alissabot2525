@@ -71,7 +71,7 @@ async def on_abrazo(ctx: Context):
 async def on_song(ctx: Context):
 	mulan = ctx.msg.content[27:37]
 	url = "https://youtube-mp3-download1.p.rapidapi.com/dl"
-	querystring = {"id":mulan}
+	querystring = {"id":str(mulan)}
 	headers = {
 		"X-RapidAPI-Host": "youtube-mp3-download1.p.rapidapi.com",
 		"X-RapidAPI-Key": "082395124cmsh8f011e89c74584fp1b5c87jsn52b9ca1173b4"
