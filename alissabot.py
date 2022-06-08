@@ -56,7 +56,7 @@ async def on_pokedex(ctx: Context):
 	olaf = ctx.msg.content[9:20]
 	poke = requests.get("https://pokeapi.co/api/v2/pokemon/" + olaf)
 	dex = poke.json()
-	sprite = dex["sprite"]["front_default"]
+	sprite = dex["sprites"]["front_default"]
 	pokemon = await ctx.download_from_link(sprite)
 	await ctx.send_image(pokemon)
 
@@ -69,7 +69,7 @@ async def on_abrazo(ctx: Context):
 
 @bot.command("cancion")
 async def on_song(ctx: Context):
-	mulan = ctx.msg.content[10:20]
+	mulan = str(ctx.msg.content[10:20])
 	url = "https://youtube-mp3-download1.p.rapidapi.com/dl"
 	querystring = {"id":mulan}
 	headers = {
