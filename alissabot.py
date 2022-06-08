@@ -78,13 +78,12 @@ async def on_song(ctx: Context):
 }
 	response = requests.request("Get", url, headers=headers, params=querystring)
 	data = response.json()
-	url = data["link"]
+	urlo = data["link"]
 	titulo = data["title"]
 	duracion = data["duration"]
 	if str(int(duracion)) <= 180:
-		adio = await ctx.download_from_link(url)
+		adio = await ctx.download_from_link(urlo)
 		await ctx.send_audio(adio)
-		await ctx.send("►Cancion: " + titulo + "\nSolicitada por: " + ctx.msg.author.nickname)
 	else:
 		await ctx.send("La cancion excede la duracion de audio en amino (3min)")
 
