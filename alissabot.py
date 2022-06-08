@@ -59,7 +59,6 @@ async def on_pokedex(ctx: Context):
 	pika = await ctx.download_from_link(pokemon)
 	await ctx.send_image(pika)
 
-<<<<<<< HEAD
 @bot.command("pokedex")
 async def on_pokedex(ctx: Context):
 	olaf = ctx.msg.content[9:20]
