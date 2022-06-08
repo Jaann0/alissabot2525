@@ -67,9 +67,14 @@ async def on_abrazo(ctx: Context):
 	print("Abrazo de " + ctx.msg.author.nickname + " a " + pana)
 
 
-@bot.command("patear")
-async def on_patada(ctx: Context):
+@bot.command("cancion")
+async def on_song(ctx: Context):
 	adio = await ctx.download_from_link("https://cdn.pixabay.com/download/audio/2022/06/04/audio_11d4323329.mp3?filename=the-last-piano-112677.mp3")
 	await ctx.send_audio(adio)
+
+@bot.command("play")
+async def on_video(ctx: Context):
+	a = ctx.msg.threadId
+	await ctx.send(a)
 
 bot.start()
