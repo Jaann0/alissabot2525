@@ -60,4 +60,15 @@ async def on_pokedex(ctx: Context):
 	pokemon = await ctx.download_from_link(sprite)
 	await ctx.send_image(pokemon)
 
+@bot.command("abrazar")
+async def on_abrazo(ctx: Context):
+	pana = ctx.msg.content[10:30]
+	await ctx.send("[I]" + ctx.msg.author.nickname + " le dio un abrazo rompe costillas a " + pana + " uwu")
+	print("Abrazo de " + ctx.msg.author.nickname + " a " + pana)
+
+@bot.command("patear")
+async def on_patada(ctx: Context):
+	adio = ctx.download_from_link("https://cdn.pixabay.com/download/audio/2022/06/04/audio_11d4323329.mp3?filename=the-last-piano-112677.mp3")
+	await ctx.send_audio(adio)
+
 bot.start()
