@@ -90,7 +90,7 @@ async def on_song(ctx: Context):
 
 @bot.command("play")
 async def on_video(ctx: Context):
-	bg = open("319_Familiar-Wife-Poster.jpg", "rb")
+	bg = open("media/319_Familiar-Wife-Poster.jpg", "rb")
 	avi = await ctx.download_from_link("https://vod-progressive.akamaized.net/exp=1654675575~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F3824%2F27%2F694124248%2F3207126058.mp4~hmac=1314570d5d23e41761fb208a0a61c4f4dd5f9333341aab3f77fff15eb6d60c88/vimeo-prod-skyfire-std-us/01/3824/27/694124248/3207126058.mp4")
 	await ctx.play_video(bg, avi, "Demo Video", 0.03, "b85f8eed-15dd-099a-12d9-a7d983b54f74", 6872133)
 
