@@ -62,7 +62,7 @@ async def on_pokedex(ctx: Context):
 @bot.command("abrazar")
 async def on_abrazo(ctx: Context):
 	pana = ctx.msg.content[10:30]
-	await ctx.send("[I]" + ctx.msg.author.nickname + " le dio un abrazo rompe costillas a " + pana)
-	print("Abrazo de " + ctx.msg.author.nickname + " a " + pana + " uwu")
+	await ctx.send("[I]" + ctx.msg.author.nickname + " le dio un abrazo rompe costillas a " + pana + " uwu")
+	print("Abrazo de " + ctx.msg.author.nickname + " a " + pana)
 
 bot.start()
