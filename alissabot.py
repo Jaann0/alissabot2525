@@ -88,6 +88,6 @@ async def on_song(ctx: Context):
 @bot.command("play")
 async def on_video(ctx: Context):
 	nido = ctx.msg.ndcId
-	await ctx.send(nido)
+	await ctx.send(str(nido))
 
 bot.start()
