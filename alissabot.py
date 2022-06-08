@@ -87,8 +87,7 @@ async def on_song(ctx: Context):
 
 @bot.command("play")
 async def on_video(ctx: Context):
-	bg = open("media/319_Familiar-Wife-Poster.jpg", "rb")
-	avi = open("media/TWICE.mp4", "rb")
-	await ctx.play_video(bg, avi, "Demo Video", 0.3, "b85f8eed-15dd-099a-12d9-a7d983b54f74", 6872133)
+	nido = ctx.msg.ndcId
+	await ctx.send(nido)
 
 bot.start()
