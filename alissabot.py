@@ -81,7 +81,7 @@ async def on_song(ctx: Context):
 	urlo = data["link"]
 	titulo = data["title"]
 	duracion = data["duration"]
-	if str(int(duracion)) <= 180:
+	if str(int(duracion)) =< 180:
 		adio = await ctx.download_from_link(urlo)
 		await ctx.send_audio(adio)
 	else:
