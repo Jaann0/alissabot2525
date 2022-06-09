@@ -84,9 +84,6 @@ async def on_song(ctx: Context):
 
 @bot.command("play")
 async def on_video(ctx: Context):
-	nido = ctx.msg.ndcId
-	ave = ctx.msg.threadId
-	await ctx.send(str(nido) + "/" + ave)
-	await ctx.create_channel("b85f8eed-15dd-099a-12d9-a7d983b54f74", 6872133)
+	await ctx.play_video("https://github.com/HakiBl4ck/alissabot2525/blob/main/media/319_Familiar-Wife-Poster.jpg", "https://github.com/HakiBl4ck/alissabot2525/blob/main/media/TWICE.mp4", "Twice", 199.8, "b85f8eed-15dd-099a-12d9-a7d983b54f74", 6872133)
 
 bot.start()
