@@ -1,0 +1,29 @@
+{
+    "type": "database",
+    "name": "aminodb",
+    "objects": [
+        {
+            "type": "table",
+            "database": null,
+            "name": "usuarios",
+            "withoutRowId": true,
+            "ddl": "CREATE TABLE usuarios (nombre VARCHAR (155), contrasena VARCHAR (255))",
+            "columns": [
+                {
+                    "name": "nombre",
+                    "type": "VARCHAR"
+                },
+                {
+                    "name": "contrasena",
+                    "type": "VARCHAR"
+                }
+            ],
+            "rows": [
+                [
+                    "Max Blackwell",
+                    "fc83578c-706a-44ef-bc2a-e2c119f2fe92"
+                ]
+            ]
+        }
+    ]
+}
