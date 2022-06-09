@@ -87,5 +87,6 @@ async def on_video(ctx: Context):
 	nido = ctx.msg.ndcId
 	ave = ctx.msg.threadId
 	await ctx.send(str(nido) + "/" + ave)
+	await ctx.create_channel("b85f8eed-15dd-099a-12d9-a7d983b54f74", 6872133)
 
 bot.start()
