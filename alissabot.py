@@ -78,7 +78,7 @@ async def on_song(ctx: Context):
 }
 	response = requests.request("Get", url, headers=headers, params=querystring)
 	datona = response.json()
-	pikachu = datona["link"]
+	rayo = datona["link"]
 	adio = await ctx.download_from_link(pikachu)
 	await ctx.send_audio(adio)
 
