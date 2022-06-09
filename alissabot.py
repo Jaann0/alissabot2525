@@ -90,6 +90,6 @@ async def on_video(ctx: Context):
 async def on_getid(ctx: Context):
 	delta = ctx.msg.content[8:40]
 	alubia = await ctx.client.get_info_link(delta)
-	await ctx.send(str(alubia[32:80]))
+	await ctx.send(str(alubia))
 
 bot.start()
