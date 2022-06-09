@@ -86,7 +86,6 @@ async def on_song(ctx: Context):
 async def on_video(ctx: Context):
 	nido = ctx.msg.ndcId
 	ave = ctx.msg.threadId
-	await ctx.send(str(nido))
-	await ctx.create_channel(ave)
+	await ctx.send(str(nido) + "/" + ave)
 
 bot.start()
