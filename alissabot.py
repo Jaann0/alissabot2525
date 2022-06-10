@@ -94,7 +94,7 @@ async def on_getid(ctx: Context):
 @bot.command("musica")
 async def on_musica(ctx: Context):
 	dart = ctx.msg.content[8:30]
-	cd = "https://github.com/HakiBl4ck/alissabot2525/blob/main/media/" + dart + ".mp3"
+	cd = "https://github.com/HakiBl4ck/alissabot2525/blob/main/media/" + str(dart) + ".mp3"
 	flop = await ctx.download_from_link(cd)
 	await ctx.send_audio(flop)
 
