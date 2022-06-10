@@ -95,6 +95,7 @@ async def on_getid(ctx: Context):
 async def on_musica(ctx: Context):
 	dart = ctx.msg.content[8:16]
 	cd = "media/" + dart + ".m4a"
-	await ctx.send_audio(cd)
+	flop open(cd, "rb")
+	await ctx.send_audio(flop)
 
 bot.start()
