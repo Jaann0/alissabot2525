@@ -79,8 +79,7 @@ async def on_song(ctx: Context):
 	response = requests.request("Get", url, headers=headers, params=querystring)
 	datona = response.json()
 	rayo = datona["link"]
-	adio = await ctx.download_from_link(pikachu)
-	await ctx.send_audio(adio)
+	await ctx.send(str(rayo))
 
 @bot.command("play")
 async def on_video(ctx: Context):
@@ -96,7 +95,7 @@ async def on_getid(ctx: Context):
 async def on_musica(ctx: Context):
 	dart = ctx.msg.content[9:16]
 	cd = "https://github.com/HakiBl4ck/alissabot2525/blob/main/media/" + dart + ".m4a"
-	flop = open(cd, "rb")
+	flop = await ctx.download_from_link(cd)
 	await ctx.send_audio(flop)
 
 bot.start()
