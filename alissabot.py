@@ -67,7 +67,7 @@ async def on_abrazo(ctx: Context):
 	print("Abrazo de " + ctx.msg.author.nickname + " a " + pana)
 
 
-@bot.command("cancion")
+@bot.command("descargar")
 async def on_song(ctx: Context):
 	mulan = ctx.msg.content[10:21]
 	url = "https://youtube-mp3-download1.p.rapidapi.com/dl"
@@ -90,7 +90,13 @@ async def on_video(ctx: Context):
 async def on_getid(ctx: Context):
 	delta = ctx.msg.content[8:40]
 	alubia = await ctx.client.get_info_link(delta)
-	holanda = alubia.split(" ")
-	await ctx.send(str(holanda))
+	await ctx.send(str(alubia))
+	
+@bot.command("musica")
+async def on_musica(ctx: Context):
+	dart = ctx.msg.content[9:16]
+	cd = "https://github.com/HakiBl4ck/alissabot2525/blob/main/media/" + dart + ".m4a"
+	flop = open(cd, "rb")
+	await ctx.send_audio(flop)
 
 bot.start()
