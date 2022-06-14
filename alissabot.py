@@ -70,16 +70,16 @@ async def on_abrazo(ctx: Context):
 @bot.command("descargar")
 async def on_song(ctx: Context):
 	mulan = ctx.msg.content[11:23]
-	url = "https://youtube-mp3-download1.p.rapidapi.com/dl"
+	url = "https://youtube-mp36.p.rapidapi.com/dl"
 	querystring = {"id":mulan}
 	headers = {
-		"X-RapidAPI-Host": "youtube-mp3-download1.p.rapidapi.com",
-		"X-RapidAPI-Key": "082395124cmsh8f011e89c74584fp1b5c87jsn52b9ca1173b4"
-}
+		"X-RapidAPI-Key": "082395124cmsh8f011e89c74584fp1b5c87jsn52b9ca1173b4",
+		"X-RapidAPI-Host": "youtube-mp36.p.rapidapi.com"
+	}
 	response = requests.request("GET", url, headers=headers, params=querystring)
-	datona = response.json()
-	rayo = datona["link"]
-	omega = await ctx.download_from_link(rayo)
+	bromin = response.json()
+	daka = bromin["link"]
+	omega = await ctx.download_from_link(daka)
 	await ctx.send_audio(omega)
 
 @bot.command("video")
