@@ -79,8 +79,7 @@ async def on_song(ctx: Context):
 	response = requests.request("GET", url, headers=headers, params=querystring)
 	bromin = response.json()
 	daka = bromin["link"]
-	omega = await ctx.download_from_link(daka)
-	await ctx.send_audio(omega)
+	await ctx.reply(str(daka))
 
 @bot.command("video")
 async def on_video(ctx: Context):
