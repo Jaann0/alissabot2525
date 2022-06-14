@@ -102,4 +102,10 @@ async def on_patada(ctx: Context):
 	habas = ctx.msg.content[8:30]
 	await ctx.send(ctx.msg.author.nickname + " le dio una patada de la surte a " + habas)
 	
+@bot.command("carta")
+async def on_carta(ctx: Context):
+	magia = ctx.msg.content[8:20]
+	tarjeta = await ctx.download_from_link("https://github.com/HakiBl4ck/eskelerbot007/raw/main/" + magia + "FUT.png")
+	await ctx.send_image(tarjeta)
+	
 bot.start()
