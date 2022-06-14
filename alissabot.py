@@ -94,7 +94,7 @@ async def on_getid(ctx: Context):
 @bot.command("musica")
 async def on_musica(ctx: Context):
 	#dart = ctx.msg.content[8:30]
-	flix = open("alissabot2525/blob/main/media/money.mp3", "rb")
+	flix = open("/media/money.mp3", "rb")
 	await ctx.send_audio(flix)
 
 @bot.command("patear")
