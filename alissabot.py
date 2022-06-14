@@ -69,7 +69,7 @@ async def on_abrazo(ctx: Context):
 
 @bot.command("descargar")
 async def on_song(ctx: Context):
-	mulan = ctx.msg.content[11:23]
+	mulan = ctx.msg.content[28:40]
 	url = "https://youtube-mp36.p.rapidapi.com/dl"
 	querystring = {"id":mulan}
 	headers = {
