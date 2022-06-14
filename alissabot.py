@@ -94,7 +94,7 @@ async def on_getid(ctx: Context):
 @bot.command("musica")
 async def on_musica(ctx: Context):
 	#dart = ctx.msg.content[8:30]
-	flix = open("/media/money.mp3", "rb")
+	flix = await ctx.download_from_link("https://github.com/HakiBl4ck/alissabot2525/blob/main/media/howyoulikethat.mp3?raw=true")
 	await ctx.send_audio(flix)
 
 @bot.command("patear")
