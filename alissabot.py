@@ -97,4 +97,9 @@ async def on_musica(ctx: Context):
 	flix = open("alissabot2525/blob/main/media/money.mp3", "rb")
 	await ctx.send_audio(flix)
 
+@bot.command("patear")
+async def on_patada(ctx: Context):
+	habas = ctx.msg.content[9:30]
+	await ctx.send(ctx.msg.author.nickname + " le dio una patada de la surte a " + habas)
+	
 bot.start()
