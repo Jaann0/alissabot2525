@@ -81,7 +81,7 @@ async def on_song(ctx: Context):
 	rayo = datona["link"]
 	await ctx.send(str(rayo))
 
-@bot.command("play")
+@bot.command("video")
 async def on_video(ctx: Context):
 	await ctx.play_video("https://github.com/HakiBl4ck/alissabot2525/blob/main/media/319_Familiar-Wife-Poster.jpg", "https://github.com/HakiBl4ck/alissabot2525/blob/main/media/TWICE.mp4", "Twice", 199.8, "b85f8eed-15dd-099a-12d9-a7d983b54f74", 6872133)
 
@@ -91,10 +91,10 @@ async def on_getid(ctx: Context):
 	alubia = await ctx.client.get_info_link(delta)
 	await ctx.send(str(alubia))
 	
-@bot.command("musica")
+@bot.command("play")
 async def on_musica(ctx: Context):
-	#dart = ctx.msg.content[8:30]
-	flix = await ctx.download_from_link("https://github.com/HakiBl4ck/alissabot2525/blob/main/media/howyoulikethat.mp3?raw=true")
+	dart = ctx.msg.content[8:30]
+	flix = await ctx.download_from_link("https://github.com/HakiBl4ck/alissabot2525/blob/main/media/" + dart + ".mp3?raw=true")
 	await ctx.send_audio(flix)
 
 @bot.command("patear")
