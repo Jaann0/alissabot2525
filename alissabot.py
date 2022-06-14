@@ -93,7 +93,7 @@ async def on_getid(ctx: Context):
 	
 @bot.command("play")
 async def on_musica(ctx: Context):
-	dart = ctx.msg.content[8:30]
+	dart = ctx.msg.content[6:30]
 	flix = await ctx.download_from_link("https://github.com/HakiBl4ck/alissabot2525/blob/main/media/" + dart + ".mp3?raw=true")
 	await ctx.send_audio(flix)
 
@@ -104,7 +104,7 @@ async def on_patada(ctx: Context):
 	
 @bot.command("carta")
 async def on_carta(ctx: Context):
-	magia = ctx.msg.content[8:20]
+	magia = ctx.msg.content[7:20]
 	tarjeta = await ctx.download_from_link("https://github.com/HakiBl4ck/eskelerbot007/raw/main/" + magia + "FUT.png")
 	await ctx.send_image(tarjeta)
 	
