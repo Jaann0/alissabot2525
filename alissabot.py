@@ -99,7 +99,7 @@ async def on_musica(ctx: Context):
 
 @bot.command("patear")
 async def on_patada(ctx: Context):
-	habas = ctx.msg.content[9:30]
+	habas = ctx.msg.content[8:30]
 	await ctx.send(ctx.msg.author.nickname + " le dio una patada de la surte a " + habas)
 	
 bot.start()
