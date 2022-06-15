@@ -5,6 +5,8 @@ import sqlite3
 
 bot = Bot('asterixyt@yahoo.com', 'Volcan1000', '!')
 
+premiums = []
+
 @bot.command("ping")
 async def on_ping(ctx: Context):
 	await ctx.reply('Pong!')
@@ -87,7 +89,7 @@ async def on_video(ctx: Context):
 
 @bot.command("getid")
 async def on_getid(ctx: Context):
-	delta = ctx.msg.content[8:40]
+	delta = ctx.msg.content[7:40]
 	alubia = await ctx.client.get_info_link(delta)
 	await ctx.send(str(alubia))
 	
