@@ -1,3 +1,4 @@
 ed-amino
 json-minify
 requests
+google-tts
