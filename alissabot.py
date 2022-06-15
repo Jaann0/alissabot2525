@@ -79,8 +79,7 @@ async def on_song(ctx: Context):
 	response = requests.request("GET", url, headers=headers, params=querystring)
 	bromin = response.json()
 	daka = bromin["link"]
-	dalas = await ctx.download_from_link(str(daka))
-	await ctx.send_audio(dalas)
+	await ctx.send(str(daka))
 
 @bot.command("video")
 async def on_video(ctx: Context):
@@ -109,4 +108,9 @@ async def on_carta(ctx: Context):
 	tarjeta = await ctx.download_from_link("https://github.com/HakiBl4ck/eskelerbot007/raw/main/" + magia + "FUT.png")
 	await ctx.send_image(tarjeta)
 	
+@bot.command("dm")
+async def on_dm(ctx: Context):
+	kula = ctx.msg.author.uid
+	await ctx.send("Que onda papu", chat_id=kula)
+
 bot.start()
