@@ -123,10 +123,6 @@ async def on_tts(ctx: Context):
 	ret = tts.tts(apu, 'output.mp3')
 	if 'audioContent' in ret:
 		b64 = ret['audioContent']
-	else:
-		error = ret['error']code = error['code']
-		message = error['message']
-		status = error['status']
 	delorian = open("output.mp3", "rb")
 	await ctx.send_audio(delorian)
 	
