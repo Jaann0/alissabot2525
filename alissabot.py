@@ -1,4 +1,5 @@
 from edamino import Bot, Context
+from GoogleTTS import GoogleTTS
 import requests
 import json
 import sqlite3
@@ -115,4 +116,18 @@ async def on_dm(ctx: Context):
 	kula = ctx.msg.author.uid
 	await ctx.send("Que onda papu", chat_id=kula)
 
+@bot.command("tts")
+async def on_tts(ctx: Context):
+	apu = ctx.msg.content[5:245]
+	tts = GoogleTTS()
+	ret = tts.tts(apu, 'output.mp3')
+	if 'audioContent' in ret:
+		b64 = ret['audioContent']
+	else:
+		error = ret['error']code = error['code']
+		message = error['message']
+		status = error['status']
+	delorian = open("output.mp3", "rb")
+	await ctx.send_audio(delorian)
+	
 bot.start()
