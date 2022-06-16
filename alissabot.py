@@ -3,6 +3,7 @@ import requests
 import json
 import sqlite3
 import random
+import time
 
 bot = Bot('asterixyt@yahoo.com', 'Volcan1000', '!')
 
@@ -114,6 +115,7 @@ async def on_carta(ctx: Context):
 	magia = random.choice(cards)
 	tarjeta = await ctx.download_from_link("https://github.com/HakiBl4ck/eskelerbot007/raw/main/" + magia)
 	await ctx.send_image(tarjeta)
+	await ctx.send("Carta sacada de: " + ctx.msg.author.nickname)
 	
 @bot.command("dm")
 async def on_dm(ctx: Context):
@@ -136,5 +138,17 @@ async def on_tistos(ctx: Context):
 		await ctx.reply(str(tiki))
 	else:
 		await.reply("Para utilizar este comando necesita ser Premium.")
+	
+@bot.command("caracola")
+async def on_caracola(ctx: Context):
+	answers = ["Posiblemente mi pequeñ@ elf@", "Uff.. lo veo muy dificil", "Por supuesto", "No", "Nunca", "Si", "Como bichot@ que eres, seguro que si", "Eso preguntaselo a una bruja, yo que se.", "Clarisimo que no", "No se, pregunta eso a tu tercer @", "Pues por supuesto que no", "Yes bitch!"]
+	puca = random.choice(answers)
+	await.reply(puca)
+	
+@bot.command("truco")
+async def on_tricky(ctx: Context):
+	await ctx.send("Ahora estoy..")
+	time.sleep(3)
+	await ctx.delete_message(ctx.msg.messageId)
 	
 bot.start()
