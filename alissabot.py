@@ -143,12 +143,6 @@ async def on_tistos(ctx: Context):
 async def on_caracola(ctx: Context):
 	answers = ["Posiblemente mi pequeñ@ elf@", "Uff.. lo veo muy dificil", "Por supuesto", "No", "Nunca", "Si", "Como bichot@ que eres, seguro que si", "Eso preguntaselo a una bruja, yo que se.", "Clarisimo que no", "No se, pregunta eso a tu tercer @", "Pues por supuesto que no", "Yes bitch!"]
 	puca = random.choice(answers)
-	await ctx.reply(puca)
-	
-@bot.command("truco")
-async def on_tricky(ctx: Context):
-	await ctx.send("Ahora estoy..")
-	time.sleep(3)
-	await ctx.delete_message(ctx.msg.messageId)
+	await ctx.reply(str(puca))
 	
 bot.start()
