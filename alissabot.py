@@ -2,10 +2,12 @@ from edamino import Bot, Context
 import requests
 import json
 import sqlite3
+import random
 
 bot = Bot('asterixyt@yahoo.com', 'Volcan1000', '!')
 
-premiums = []
+premiums = ["fc83578c-706a-44ef-bc2a-e2c119f2fe92"]
+cards = ["JennieFUT.png", "JisooFUT.png", "JinsoulFUT.png", "LisaFUT.png", "HeejinFUT.png", "JypFUT.png", "SmFUT.png", "KarinaFUT.png", "NingningFUT.png", "RoseFUT.png", "YgFUT.png"]
 
 @bot.command("ping")
 async def on_ping(ctx: Context):
@@ -81,7 +83,10 @@ async def on_song(ctx: Context):
 	response = requests.request("GET", url, headers=headers, params=querystring)
 	bromin = response.json()
 	daka = bromin["link"]
-	await ctx.send(str(daka))
+	if str(ctx.msg.author.uid) in premiums:
+		await ctx.send(str(daka))
+	else:
+		await ctx.send("Para utilizar este comando necesita ser Premium.")
 
 @bot.command("video")
 async def on_video(ctx: Context):
@@ -106,8 +111,8 @@ async def on_patada(ctx: Context):
 	
 @bot.command("carta")
 async def on_carta(ctx: Context):
-	magia = ctx.msg.content[7:20]
-	tarjeta = await ctx.download_from_link("https://github.com/HakiBl4ck/eskelerbot007/raw/main/" + magia + "FUT.png")
+	magia = random.choice(cards)
+	tarjeta = await ctx.download_from_link("https://github.com/HakiBl4ck/eskelerbot007/raw/main/" + magia)
 	await ctx.send_image(tarjeta)
 	
 @bot.command("dm")
