@@ -137,13 +137,13 @@ async def on_tistos(ctx: Context):
 	if ctx.msg.author.uid in premiums:
 		await ctx.reply(str(tiki))
 	else:
-		await.reply("Para utilizar este comando necesita ser Premium.")
+		await ctx.reply("Para utilizar este comando necesita ser Premium.")
 	
 @bot.command("caracola")
 async def on_caracola(ctx: Context):
 	answers = ["Posiblemente mi pequeñ@ elf@", "Uff.. lo veo muy dificil", "Por supuesto", "No", "Nunca", "Si", "Como bichot@ que eres, seguro que si", "Eso preguntaselo a una bruja, yo que se.", "Clarisimo que no", "No se, pregunta eso a tu tercer @", "Pues por supuesto que no", "Yes bitch!"]
 	puca = random.choice(answers)
-	await.reply(puca)
+	await ctx.reply(puca)
 	
 @bot.command("truco")
 async def on_tricky(ctx: Context):
