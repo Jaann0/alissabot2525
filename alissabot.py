@@ -145,4 +145,11 @@ async def on_caracola(ctx: Context):
 	puca = random.choice(answers)
 	await ctx.reply(str(puca))
 	
+@bot.command("compatibilidad")
+async def on_compat(ctx: Context):
+	un = ctx.msg.author.nickname
+	plux = ctx.msg.content[16:30]
+	rango = random.choice(range(1,100))
+	await ctx.send("La compatibilidad amorosa entre " + un " y " + plux + "\nes de " + rango + "♡")
+	
 bot.start()
