@@ -124,7 +124,7 @@ async def on_dm(ctx: Context):
 	
 @bot.command("tiktok")
 async def on_tistos(ctx: Context):
-	luka = ctx.msg.content[30:38]
+	luka = ctx.msg.content[23:31]
 	url = "https://tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com/index"
 	querystring = {"url":"https://www.tiktok.com/@nor10122/video/" + str(luka)}
 	headers = {
