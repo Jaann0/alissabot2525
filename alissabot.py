@@ -133,9 +133,8 @@ async def on_tistos(ctx: Context):
 	}
 	response = requests.request("GET", url, headers=headers, params=querystring)
 	gloom = response.json()
-	tiki = gloom["video"]
 	if ctx.msg.author.uid in premiums:
-		await ctx.reply(str(tiki))
+		await ctx.reply(str(gloom))
 	else:
 		await ctx.reply("Para utilizar este comando necesita ser Premium.")
 	
