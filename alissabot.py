@@ -124,17 +124,18 @@ async def on_dm(ctx: Context):
 	
 @bot.command("tiktok")
 async def on_tistos(ctx: Context):
-	luka = ctx.msg.content[23:31]
+	luka = ctx.msg.content[8:60]
 	url = "https://tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com/index"
-	querystring = {"url":"https://www.tiktok.com/@nor10122/video/" + str(luka)}
+	querystring = {"url":str(luka)}
 	headers = {
 		"X-RapidAPI-Key": "082395124cmsh8f011e89c74584fp1b5c87jsn52b9ca1173b4",
 		"X-RapidAPI-Host": "tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com"
 	}
 	response = requests.request("GET", url, headers=headers, params=querystring)
 	gloom = response.json()
+	tiki = gloom["video"][0]
 	if ctx.msg.author.uid in premiums:
-		await ctx.reply(str(gloom))
+		await ctx.reply(str(tiki))
 	else:
 		await ctx.reply("Para utilizar este comando necesita ser Premium.")
 	
