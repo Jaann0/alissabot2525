@@ -151,5 +151,21 @@ async def on_compat(ctx: Context):
 	plux = ctx.msg.content[16:30]
 	rango = random.choice(range(1,100))
 	await ctx.send("La compatibilidad amorosa entre " + un + " y " + plux + "\nes de " + str(rango) + "%")
+
+@bot.command("marryme")
+async def on_casados(ctx: Context):
+	novio = ctx.msg.author.nickname
+	novia = ctx.msg.content[9:35]
+	clave = ctx.msg.author.uid
+	if ctx.msg.extensions.replyMessage == "acepto":
+		kunno = sqlite3.connect("matrimonios.db")
+		mouse = kunno.cursor()
+		mouse.execute("INSERT INTO casados VALUES (?,?,?)", (novio, novia, clave))
+		kunno.commit()
+		kunno.close()
+		await ctx.send("Felicitaciones al nuevo matrimonio de " + novio + " y " + novia + "\n[I]Hasta que el amante los separe")
+	time.sleep(5)
+	else:
+		await ctx.send("No acepto a tiempo su pareja")
 	
 bot.start()
