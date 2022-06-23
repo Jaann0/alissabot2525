@@ -164,7 +164,7 @@ async def on_casados(ctx: Context):
 		kunno.commit()
 		kunno.close()
 		await ctx.send("Felicitaciones al nuevo matrimonio de " + novio + " y " + novia + "\n[I]Hasta que el amante los separe")
-	time.sleep(5)
+	time.sleep(10)
 	else:
 		await ctx.send("No acepto a tiempo su pareja")
 	
