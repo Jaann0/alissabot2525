@@ -171,5 +171,7 @@ async def on_casados(ctx: Context):
 async def on_matris(ctx: Context):
 	dalas = ctx.msg.content[10:30]
 	await ctx.reply(dalas)
+	alfred = ctx.msg.extensions.replyMessage
+	await ctx.send(alfred)
 	
 bot.start()
