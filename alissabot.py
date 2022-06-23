@@ -157,7 +157,7 @@ async def on_casados(ctx: Context):
 	novio = ctx.msg.author.nickname
 	novia = ctx.msg.content[9:35]
 	clave = ctx.msg.author.uid
-	if ctx.msg.extensions.replyMessage == "acepto":
+	if ctx.msg.extensions.replyMessage == "acepto" and ctx.msg.extensions.replyMessage.author.nickname == novia:
 		kunno = sqlite3.connect("matrimonios.db")
 		mouse = kunno.cursor()
 		mouse.execute("INSERT INTO casados VALUES (?,?,?)", (novio, novia, clave))
@@ -166,5 +166,10 @@ async def on_casados(ctx: Context):
 		await ctx.send("Felicitaciones al nuevo matrimonio de " + novio + " y " + novia + "\n[I]Hasta que el amante los separe")
 	else:
 		await ctx.send("Su pareja no acepto")
+	
+@bot.command("prueba")
+async def on_matris(ctx: Context):
+	dalas = ctx.msg.content[9:30]
+	await ctx.reply(dalas)
 	
 bot.start()
