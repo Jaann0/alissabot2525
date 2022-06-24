@@ -173,6 +173,12 @@ async def on_matris(ctx: Context):
 	await ctx.reply(dalas)
 	alfred = ctx.msg.extensions.replyMessage
 	time.sleep(5)
-	await ctx.send(alfred)
+	await ctx.send("Sopa do Macaco")
+	
+@bot.command("get")
+async def on_get(ctx: Context):
+	ph = ctx.msg.content[5:30]
+	llanta = await ctx.get_user_info(str(ph))
+	await ctx.send(str(llanta))
 	
 bot.start()
