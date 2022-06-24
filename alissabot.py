@@ -157,28 +157,11 @@ async def on_casados(ctx: Context):
 	novio = ctx.msg.author.nickname
 	novia = ctx.msg.content[9:35]
 	clave = ctx.msg.author.uid
-	if ctx.msg.extensions.replyMessage == "acepto" and ctx.msg.extensions.replyMessage.author.nickname == novia:
-		kunno = sqlite3.connect("matrimonios.db")
-		mouse = kunno.cursor()
-		mouse.execute("INSERT INTO casados VALUES (?,?,?)", (novio, novia, clave))
-		kunno.commit()
-		kunno.close()
-		await ctx.send("Felicitaciones al nuevo matrimonio de " + novio + " y " + novia + "\n[I]Hasta que el amante los separe")
-	else:
-		await ctx.send("Su pareja no acepto")
-	
-@bot.command("prueba")
-async def on_matris(ctx: Context):
-	dalas = ctx.msg.content[10:30]
-	await ctx.reply(dalas)
-	alfred = ctx.msg.extensions.replyMessage
-	time.sleep(5)
-	await ctx.send("Sopa do Macaco")
-	
-@bot.command("get")
-async def on_get(ctx: Context):
-	ph = ctx.msg.content[5:30]
-	llanta = await ctx.get_user_info(str(ph))
-	await ctx.send(str(llanta))
+	kunno = sqlite3.connect("matrimonios.db")
+	curzor = kunno.cursor()
+	curzor.execute("INSERT INTO casados VALUES (?,?,?)", (novio, novia, clave))
+	kunno.commit()
+	kunno.close()
+	await ctx.send("Felicitaciones a " + novio + " y " + novia + "\nPor su matrimonio, hasta que el amante los separe!")
 	
 bot.start()
