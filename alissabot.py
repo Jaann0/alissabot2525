@@ -163,5 +163,13 @@ async def on_casados(ctx: Context):
 	kunno.commit()
 	kunno.close()
 	await ctx.send("Felicitaciones a " + novio + " y " + novia + "\nPor su matrimonio, hasta que el amante los separe!")
-	
+
+@bot.command("comandos")
+async def on_cmds(ctx: Context):
+	await ctx.send("[BUI]Lista de Comandos\n!ping: Usalo para saber si el bot esta activo.\n!hola: Comando para saludar al bot.\n!pokedex (nombre del pokemon): Este comando envia la imagen de dicho pokemon.\n!abrazar (@nombre de la persona): Abrazas a esa persona espcial.\n@!descargar (link del video)[PREMIUM]: Permite descargar canciones de youtube.\n!patear (@nombre de la persona): Envias una patada a esa persona especial.\n!carta: Sacas una carta al azar de un idol [Apuesta].\n!caracola (pregunta): Puedes preguntarle algo a la caracola magica.\n!compatibilidad (nombre de la persona): Puedes saber tu compatibilidad con dicha persona.")
+
+@bot.command("checkin")
+async def on_checkin(ctx: Context):
+	await ctx.client.check_in(tz=360)
+
 bot.start()
