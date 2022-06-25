@@ -171,5 +171,6 @@ async def on_cmds(ctx: Context):
 @bot.command("checkin")
 async def on_checkin(ctx: Context):
 	await ctx.client.check_in(tz=360)
+	await ctx.reply("Check In Realizado!")
 
 bot.start()
