@@ -8,7 +8,7 @@ import time
 bot = Bot('asterixyt@yahoo.com', 'Volcan1000', '!')
 
 premiums = ["fc83578c-706a-44ef-bc2a-e2c119f2fe92"]
-cards = ["JennieFUT.png", "JisooFUT.png", "JinsoulFUT.png", "LisaFUT.png", "HeejinFUT.png", "JypFUT.png", "SmFUT.png", "KarinaFUT.png", "NingningFUT.png", "RoseFUT.png", "YgFUT.png", "XiaotingFUT.png", "ClFUT.png", "BahiyyihFUT.png", "JuyeonFUT.png", "PsyFUT.png"]
+cards = ["YoongiFUT.png", "JennieFUT.png", "JisooFUT.png", "JinsoulFUT.png", "LisaFUT.png", "HeejinFUT.png", "JypFUT.png", "SmFUT.png", "KarinaFUT.png", "NingningFUT.png", "RoseFUT.png", "YgFUT.png", "XiaotingFUT.png", "ClFUT.png", "BahiyyihFUT.png", "JuyeonFUT.png", "PsyFUT.png"]
 
 @bot.command("ping")
 async def on_ping(ctx: Context):
@@ -172,5 +172,12 @@ async def on_cmds(ctx: Context):
 async def on_checkin(ctx: Context):
 	await ctx.client.check_in(tz=360)
 	await ctx.reply("Check In Realizado!")
+
+@bot.command("ctm")
+async def on_ctm(ctx: Context):
+	alma = ctx.msg.content[5:30]
+	idi = await ctx.download_from_link("https://github.com/HakiBl4ck/alissabot2525/blob/main/Concha%20tu%20madre%20Concha%20tu%20madre.m4a?raw=true")
+	await ctx.send_audio(idi)
+	await ctx.send("Audio dedicado a " + alma)
 
 bot.start()
