@@ -180,6 +180,4 @@ async def on_ctm(ctx: Context):
 	await ctx.send_audio(idi)
 	await ctx.send("Audio dedicado a " + alma)
 
-
-
 bot.start()
