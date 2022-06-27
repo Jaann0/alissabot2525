@@ -197,6 +197,6 @@ async def on_weather(ctx: Context):
 	ciudad = foca["location"]["city"]
 	sunrise = foca["current_observation"]["astronomy"]["sunrise"]
 	sunset = foca["current_observation"]["astronomy"]["sunset"]
-	await ctx.send("[B]" + ciudad + "\n" + clima + "\nTemperatura Minima: " + str(tempMin) + "°\nTemperatura Maxima: " + str(tempMax) + "°\nAmanecer:" + sunrise + "Anochecer:" + sunset)
+	await ctx.send("[B]" + ciudad + "\n" + clima + "\nTemperatura Minima: " + str(tempMin) + "°\nTemperatura Maxima: " + str(tempMax) + "°\nAmanecer: " + sunrise + "\nAnochecer: " + sunset)
 	
 bot.start()
