@@ -180,4 +180,20 @@ async def on_ctm(ctx: Context):
 	await ctx.send_audio(idi)
 	await ctx.send("Audio dedicado a " + alma)
 
+@bot.command("clima")
+async def on_weather(ctx: Context):
+	extasis = ctx.msg.content[7:27]
+	url = "https://yahoo-weather5.p.rapidapi.com/weather"
+	querystring = {"location":extasis,"format":"json","u":"c"}
+	headers = {
+		"X-RapidAPI-Key": "082395124cmsh8f011e89c74584fp1b5c87jsn52b9ca1173b4",
+		"X-RapidAPI-Host": "yahoo-weather5.p.rapidapi.com"
+	}
+	response = requests.request("GET", url, headers=headers, params=querystring)
+	foca = response.json()
+	clima = foca["forecasts"][0]["text"]
+	tempMin = foca["forecasts"][0]["low"]
+	tempMax = foca["forecasts"][0]["high"]
+	await ctx.send("El clima para\n[B]" + extasis + " es:\n" + clima + "\nTemperatura Minima: " + str(tempMin) + "°\nTemperatura Maxima: " + str(tempMax) + "°")
+	
 bot.start()
