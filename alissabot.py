@@ -176,7 +176,7 @@ async def on_checkin(ctx: Context):
 @bot.command("ctm")
 async def on_ctm(ctx: Context):
 	alma = ctx.msg.content[5:30]
-	idi = await ctx.download_from_link("https://raw.githubusercontent.com/HakiBl4ck/alissabot2525/main/Concha%20tu%20madre%20Concha%20tu%20madre.m4a")
+	idi = await ctx.download_from_link("https://github.com/HakiBl4ck/eskelerbot007/raw/main/Concha%20tu%20madre%20Concha%20tu%20madre%20(online-audio-converter.com).mp3")
 	await ctx.send_audio(idi)
 	await ctx.send("Audio dedicado a " + alma)
 
