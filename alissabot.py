@@ -203,7 +203,7 @@ async def on_weather(ctx: Context):
 async def on_avatar(alv: Context):
 	aio = alv.msg.content[6:30]
 	url = "https://k-pop.p.rapidapi.com/idols"
-	querystring = {"q":"Jungkook","by":"Stage Name","limit":"2"}
+	querystring = {"q":aio,"by":"Stage Name","limit":"2"}
 	headers = {
 		"X-RapidAPI-Key": "082395124cmsh8f011e89c74584fp1b5c87jsn52b9ca1173b4",
 		"X-RapidAPI-Host": "k-pop.p.rapidapi.com"
