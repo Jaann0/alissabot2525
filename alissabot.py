@@ -199,8 +199,24 @@ async def on_weather(ctx: Context):
 	sunset = foca["current_observation"]["astronomy"]["sunset"]
 	await ctx.send("[B]" + ciudad + "\n" + clima + "\nTemperatura Minima: " + str(tempMin) + "°\nTemperatura Maxima: " + str(tempMax) + "°\nAmanecer: " + sunrise + "\nAnochecer: " + sunset)
 	
-@bot.command("cmd1")
+@bot.command("idol")
 async def on_avatar(alv: Context):
-	await alv.send("Responde a este comando.")
+	aio = alv.msg.content[6:30]
+	url = "https://k-pop.p.rapidapi.com/idols"
+	querystring = {"q":"Jungkook","by":"Stage Name","limit":"2"}
+	headers = {
+		"X-RapidAPI-Key": "082395124cmsh8f011e89c74584fp1b5c87jsn52b9ca1173b4",
+		"X-RapidAPI-Host": "k-pop.p.rapidapi.com"
+	}
+	response = requests.request("GET", url, headers=headers, params=querystring)
+	bp = response.json()
+	fn = bp["data"][0]["Full Name"]
+	kn = bp["data"][0]["Korean Name"]
+	cum = bp["data"][0]["Date of Birth"]
+	bipl = bp["data"][0]["Birthplace"]
+	alt = bp["data"][0]["Height"]
+	pes = bp["data"][0]["Weight"]
+	nombre = bp["data"][0]["Stage Name"]
+	await alv.send("[BU]Ficha de " + nombre + "\nNombre Completo: " + fn + "\nNombre Coreano: " + kn + "\nFecha de Nacimiento: " + cum + "\nLugar de Origen: "+ bipl + "\nAltura: " + alt + "\nPeso: " + pes)
 	
 bot.start()
