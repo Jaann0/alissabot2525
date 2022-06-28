@@ -201,11 +201,10 @@ async def on_weather(ctx: Context):
 	
 @bot.command("cmd1")
 async def on_avatar(alv: Context):
-	av = alv.msg.content[6:20]
-	await alv.send("Prueba el segundo comando.")
+	await alv.send("Responde a este comando.")
 	
-@bot.command("cmd2")
+@bot.command(alv.msg.extensions.replyMessage)
 async def on_cmd2(puk: Context):
-	await puk.send(alv.msg.content[6:30])
+	await puk.send("La Tuya hido de putia!")
 	
 bot.start()
