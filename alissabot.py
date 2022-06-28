@@ -199,4 +199,13 @@ async def on_weather(ctx: Context):
 	sunset = foca["current_observation"]["astronomy"]["sunset"]
 	await ctx.send("[B]" + ciudad + "\n" + clima + "\nTemperatura Minima: " + str(tempMin) + "°\nTemperatura Maxima: " + str(tempMax) + "°\nAmanecer: " + sunrise + "\nAnochecer: " + sunset)
 	
+@bot.command("cmd1")
+async def on_avatar(alv: Context):
+	av = alv.msg.content[8:20]
+	await alv.send("Prueba el segundo comando.")
+	
+@bot.command("cmd2")
+async def on_cmd2(puk: Context):
+	await puk.send(av)
+	
 bot.start()
