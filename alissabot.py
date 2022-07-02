@@ -225,7 +225,7 @@ async def on_newchisme(ctx: Context):
 	prop = ctx.msg.author.nickname
 	lizy = sqlite3.connect("chismografo.db")
 	k = lizy.cursor()
-	k.execute("INSERT INTO chismes VALUES (?,?,?)", (?,ch, prop))
+	k.execute("INSERT INTO chismes VALUES (?,?)", (ch, prop))
 	lizy.commit
 	lizy.close
 	await ctx.send("Chsime agregado con exito!")
