@@ -236,18 +236,9 @@ async def on_chismear(ctx: Context):
 	kax = monda.cursor()
 	kax.execute("SELECT * FROM chismes")
 	dado = kax.fetchall()
-	gamma = map(str, kax)
+	gamma = " ".join(map(str, kax))
 	await ctx.send("[BU]Chismografo Eskeler\n" + gamma)
 	monda.close()
-	
-@bot.command("1")
-async def uno(ctx: Context):
-	await ctx.send("Dale al segundo")
-	polla = await ctx.msg.author.nickname
-	
-@bot.command("2")
-async def dos(ctx: Context):
-	await ctx.send(uno().polla)
 	
 	
 bot.start()
