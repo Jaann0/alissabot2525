@@ -219,4 +219,26 @@ async def on_avatar(alv: Context):
 	nombre = bp["data"][0]["Stage Name"]
 	await alv.send("[BU]Ficha de " + nombre + "\nNombre Completo: " + fn + "\nNombre Coreano: " + kn + "\nFecha de Nacimiento: " + cum + "\nLugar de Origen: "+ bipl + "\nAltura: " + alt + "\nPeso: " + pes)
 	
+@bot.command("chisme")
+async def on_newchisme(ctx: Context):
+	ch = ctx.msg.content[8:200]
+	prop = ctx.msg.author.nickname
+	lizy = sqlite3.connect("chismografo.db.db")
+	k = lizy.cursor()
+	k.execute("INSERT INTO chismes VALUES (?,?)", (ch, prop))
+	lizy.commit
+	lizy.close
+	await ctx.send("Chsime agregado con exito!")
+
+@bot.command("chismear")
+async def on_chismear(ctx: Context):
+	monda = sqlite3.connect("chismografo.db.db")
+	kax = monda.cursor()
+	kax.execute("SELECT * FROM chismes")
+	dado = kax.fetchall()
+	gas = " ".join(map(str, dado))
+	await ctx.send("[BU]Chismografo Eskeler" + gas)
+	monda.close()
+	
+	
 bot.start()
