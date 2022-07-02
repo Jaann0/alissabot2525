@@ -98,9 +98,9 @@ async def on_video(ctx: Context):
 async def on_getid(ctx: Context):
 	delta = ctx.msg.content[7:40]
 	alubia = await ctx.get_info_link(delta)
-	oid = str(alubia.linkInfo.objectId)
-	profi = UserProfile(uid=oid)
-	await ctx.send(profi.nickname)
+	oid = alubia.linkInfo.objectId
+	profi = await ctx.get_user_info(UserProfile(uid=oid))
+	await ctx.send(str(profi))
 	
 @bot.command("play")
 async def on_musica(ctx: Context):
