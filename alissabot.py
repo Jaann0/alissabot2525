@@ -234,11 +234,20 @@ async def on_newchisme(ctx: Context):
 async def on_chismear(ctx: Context):
 	monda = sqlite3.connect("chismografo.db")
 	kax = monda.cursor()
-	kax.execute("SELECT chisme FROM chismes")
+	kax.execute("SELECT * FROM chismes")
 	dado = kax.fetchall()
 	gas = " ".join(map(str, dado))
 	await ctx.send("[BU]Chismografo Eskeler\n" + gas)
 	monda.close()
+	
+@bot.command("1")
+async def uno(ctx: Context):
+	await ctx.send("Dale al segundo")
+	polla = await ctx.msg.author.nickname
+	
+@bot.command("2")
+async def dos(ctx: Context):
+	await ctx.send(str(uno.polla))
 	
 	
 bot.start()
