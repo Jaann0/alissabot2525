@@ -1,4 +1,5 @@
 from edamino import Bot, Context
+from edamino.objects import UserProfile
 import requests
 import json
 import sqlite3
@@ -96,7 +97,7 @@ async def on_video(ctx: Context):
 @bot.command("getid")
 async def on_getid(ctx: Context):
 	delta = ctx.msg.content[7:40]
-	alubia = await ctx.client.get_info_link(delta)
+	alubia = await ctx.get_info_link(delta)
 	profi = str(alubia.linkInfo.objectId)
 	await ctx.send(UserProfile(uid=profi).nickname)
 	
