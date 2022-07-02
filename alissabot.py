@@ -225,7 +225,7 @@ async def on_newchisme(ctx: Context):
 	prop = ctx.msg.author.nickname
 	lizy = sqlite3.connect("chismografo.db.db")
 	k = lizy.cursor()
-	k.execute("INSERT INTO chismes VALUES (?,?)", (ch, prop))
+	k.execute("INSERT INTO chismes VALUES (?,?,?)", (ch, prop))
 	lizy.commit
 	lizy.close
 	await ctx.send("Chsime agregado con exito!")
@@ -237,7 +237,7 @@ async def on_chismear(ctx: Context):
 	kax.execute("SELECT * FROM chismes")
 	dado = kax.fetchall()
 	gas = " ".join(map(str, dado))
-	await ctx.send("[BU]Chismografo Eskeler" + gas)
+	await ctx.send("[BU]Chismografo Eskeler\n" + gas)
 	monda.close()
 	
 	
