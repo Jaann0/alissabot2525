@@ -223,7 +223,7 @@ async def on_avatar(alv: Context):
 async def on_newchisme(ctx: Context):
 	ch = ctx.msg.content[8:200]
 	prop = ctx.msg.author.nickname
-	lizy = sqlite3.connect("chismografo.db.db")
+	lizy = sqlite3.connect("chismografo.db")
 	k = lizy.cursor()
 	k.execute("INSERT INTO chismes VALUES (?,?,?)", (?,ch, prop))
 	lizy.commit
@@ -232,7 +232,7 @@ async def on_newchisme(ctx: Context):
 
 @bot.command("chismear")
 async def on_chismear(ctx: Context):
-	monda = sqlite3.connect("chismografo.db.db")
+	monda = sqlite3.connect("chismografo.db")
 	kax = monda.cursor()
 	kax.execute("SELECT * FROM chismes")
 	dado = kax.fetchall()
