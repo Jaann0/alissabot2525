@@ -235,7 +235,7 @@ async def on_chismear(ctx: Context):
 	monda = sqlite3.connect("chismografo.db")
 	kax = monda.cursor()
 	kax.execute("SELECT * FROM chismes")
-	dado = kax.fetchall()
+	dado = kax.fetchall(0)
 	gas = " ".join(map(str, dado))
 	await ctx.send("[BU]Chismografo Eskeler\n" + gas)
 	monda.close()
