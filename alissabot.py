@@ -237,8 +237,8 @@ async def on_chismear(ctx: Context):
 	kax.execute("SELECT * FROM chismes")
 	dado = kax.fetchall()
 	gamma = " ".join(map(str, kax))
-	await ctx.send("[BU]Chismografo Eskeler\n" + gamma)
 	monda.close()
+	await ctx.send(gama)
 	
 	
 bot.start()
