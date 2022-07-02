@@ -230,7 +230,7 @@ async def on_newchisme(ctx: Context):
 	lizy.close
 	await ctx.send("Chsime agregado con exito!")
 
-@bot.command("chismear")
+@bot.command("chismografo")
 async def on_chismear(ctx: Context):
 	monda = sqlite3.connect("chismografo.db")
 	kax = monda.cursor()
