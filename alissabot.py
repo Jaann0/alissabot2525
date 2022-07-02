@@ -99,8 +99,8 @@ async def on_getid(ctx: Context):
 	delta = ctx.msg.content[7:40]
 	alubia = await ctx.get_info_link(delta)
 	profi = str(alubia.linkInfo.objectId)
-	ac = await ctx.get_user_info(UserProfile(uid=profi).nickname)
-	await ctx.send(str(ac))
+	ac = await ctx.get_user_info(UserProfile(uid=profi))
+	await ctx.send(str(ac.nicname))
 	
 @bot.command("play")
 async def on_musica(ctx: Context):
