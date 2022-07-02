@@ -236,8 +236,8 @@ async def on_chismear(ctx: Context):
 	kax = monda.cursor()
 	kax.execute("SELECT * FROM chismes")
 	dado = kax.fetchall()
-	gamma = " ".join(map(str, kax))
-	await ctx.send(gama)
+	gamma = " ".join(map(str, dado))
+	await ctx.send(gamma)
 	monda.close()
 	
 	
