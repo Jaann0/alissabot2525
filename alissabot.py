@@ -243,5 +243,9 @@ async def on_chismear(ctx: Context):
 	await ctx.send(gamma)
 	monda.close()
 	
+@bot.command("msi")
+async def on_msi(ctx: Context):
+	await ctx.send(ctx.msg.threadId)
+	
 	
 bot.start()
