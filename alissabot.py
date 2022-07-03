@@ -92,8 +92,8 @@ async def on_song(ctx: Context):
 
 @bot.command("video")
 async def on_video(ctx: Context):
-	await ctx.create_channel(ctx.msg.threadId, ctx.msg.ndcId)
-	await ctx.play_video("https://github.com/HakiBl4ck/alissabot2525/raw/main/media/319_Familiar-Wife-Poster.jpg", "https://github.com/HakiBl4ck/alissabot2525/raw/main/media/TWICE.mp4", "Twice", 199.8, ctx.msg.threadId, ctx.msg.ndcId)
+	await ctx.create_channel(str(ctx.msg.threadId), ctx.msg.ndcId)
+	await ctx.play_video("https://github.com/HakiBl4ck/alissabot2525/raw/main/media/319_Familiar-Wife-Poster.jpg", "https://github.com/HakiBl4ck/alissabot2525/raw/main/media/TWICE.mp4", "Twice", 199.8, str(ctx.msg.threadId), ctx.msg.ndcId)
 
 @bot.command("getid")
 async def on_getid(ctx: Context):
@@ -247,6 +247,10 @@ async def on_chismear(ctx: Context):
 @bot.command("msi")
 async def on_msi(ctx: Context):
 	await ctx.send(ctx.msg.threadId)
+	
+@bot.command("join")
+async def on_join(ctx: Context):
+	await ctx.join_channel(0, str(ctx.msg.threadId), ctx.msg.ndcId)
 	
 	
 bot.start()
