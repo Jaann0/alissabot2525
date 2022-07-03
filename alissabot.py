@@ -92,7 +92,7 @@ async def on_song(ctx: Context):
 
 @bot.command("video")
 async def on_video(ctx: Context):
-	await ctx.play_video("https://github.com/HakiBl4ck/alissabot2525/raw/main/media/319_Familiar-Wife-Poster.jpg", "https://github.com/HakiBl4ck/alissabot2525/raw/main/media/TWICE.mp4", "Twice", 199.8, "b85f8eed-15dd-099a-12d9-a7d983b54f74", 6872133)
+	await ctx.play_video_is_done("https://github.com/HakiBl4ck/alissabot2525/raw/main/media/319_Familiar-Wife-Poster.jpg", "https://github.com/HakiBl4ck/alissabot2525/raw/main/media/TWICE.mp4", "Twice", 199.8, "b85f8eed-15dd-099a-12d9-a7d983b54f74", 6872133)
 
 @bot.command("getid")
 async def on_getid(ctx: Context):
