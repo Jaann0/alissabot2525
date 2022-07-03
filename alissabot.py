@@ -93,7 +93,9 @@ async def on_song(ctx: Context):
 @bot.command("video")
 async def on_video(ctx: Context):
 	await ctx.create_channel(str(ctx.msg.threadId), ctx.msg.ndcId)
-	await ctx.play_video("https://github.com/HakiBl4ck/alissabot2525/raw/main/media/319_Familiar-Wife-Poster.jpg", "https://github.com/HakiBl4ck/alissabot2525/raw/main/media/TWICE.mp4", "Twice", 199.8, str(ctx.msg.threadId), ctx.msg.ndcId)
+	mp = await ctx.download_from_link("https://github.com/HakiBl4ck/alissabot2525/raw/main/media/319_Familiar-Wife-Poster.jpg")
+	kik = await ctx.download_from_link("https://github.com/HakiBl4ck/alissabot2525/raw/main/media/TWICE.mp4")
+	await ctx.play_video(mp, kik, "Twice", 199.8, str(ctx.msg.threadId), ctx.msg.ndcId)
 
 @bot.command("getid")
 async def on_getid(ctx: Context):
