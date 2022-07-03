@@ -1,5 +1,5 @@
 from edamino import Bot, Context
-from edamino.objects import UserProfile
+from edamino.objects import *
 import requests
 import json
 import sqlite3
