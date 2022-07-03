@@ -243,10 +243,5 @@ async def on_chismear(ctx: Context):
 	await ctx.send(gamma)
 	monda.close()
 	
-@bot.command("sesamo")
-async def on_abc(ctx: Context):
-	ew = SocketAnswer.o.channelName
-	ctx.send(ew)
-	
 	
 bot.start()
