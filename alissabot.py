@@ -252,7 +252,7 @@ async def on_msi(ctx: Context):
 	
 @bot.command("join")
 async def on_join(ctx: Context):
-	await ctx.join_channel(0, str(ctx.msg.threadId), ctx.msg.ndcId)
+	await ctx.join_channel(1, str(ctx.msg.threadId), ctx.msg.ndcId)
 	
 	
 bot.start()
