@@ -254,5 +254,11 @@ async def on_msi(ctx: Context):
 async def on_join(ctx: Context):
 	await ctx.join_channel(1, str(ctx.msg.threadId), ctx.msg.ndcId)
 	
+@bot.command("pelotuda")
+async def pelotuda(ctx: Context):
+	if ctx.msg.author.uid in Chat.extensions.coHost:
+		await ctx.send("Vos sos un pelotudo")
+	else:
+		await ctx.send("Abueno")
 	
 bot.start()
