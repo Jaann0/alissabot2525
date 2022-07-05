@@ -275,6 +275,7 @@ async def on_casasdes(ctx: Context):
 	
 @bot.event()
 async def on_mention(ctx: Context):
-	await ctx.reply("Queee pasaaa!)
+	await ctx.reply("Queee pasaaa!")
+	await ctx.msg.extensions.replyMessage
 	
 bot.start()
