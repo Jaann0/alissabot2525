@@ -171,7 +171,7 @@ async def on_casados(ctx: Context):
 	curzor = kunno.cursor()
 	curzor.execute("INSERT INTO casados VALUES (null,?,?)", (novio, novia))
 	kunno.commit()
-	await ctx.send("Felicitaciones a " + novio + " y " + novia + "\nPor su matrimonio, hasta que el amante los separe!", reply=msg.o.chatMessage.messageId)
+	await ctx.send("Felicitaciones a " + novio + " y " + novia + "\nPor su matrimonio, hasta que el amante los separe!", reply=marry.o.chatMessage.messageId)
 	kunno.close()
 
 @bot.command("comandos")
