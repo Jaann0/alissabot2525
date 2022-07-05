@@ -262,5 +262,15 @@ async def on_casades(ctx: Context):
 	await ctx.send(celta)
 	ily.close()
 	
+@bot.command("divorcio")
+async def on_divorcio(ctx: Context):
+	nev = ctx.msg.content[10:30]
+	paper = sqlite3.connect("matris.db")
+	ku = paper.cursor()
+	ku.execute("DELETE FROM casados WHERE novio=(?)", (nev))
+	paper.commit()
+	await ctx.send("El Diviorcio ha sido firmado por ambos, les deseamos suerte a ambos :(")
+	paper.close()
+	
 	
 bot.start()
