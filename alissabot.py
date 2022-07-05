@@ -163,7 +163,7 @@ async def on_casados(ctx: Context):
 	try:
 		novio = ctx.msg.author.nickname
 		novia = ctx.msg.content[9:35]
-		kunno = sqlite3.connect("matris.db")
+		kunno = sqlite3.connect("matriz.db")
 		curzor = kunno.cursor()
 		curzor.execute("INSERT INTO casados VALUES (null,?,?)", (novio, novia))
 		kunno.commit()
@@ -256,7 +256,7 @@ async def on_msi(ctx: Context):
 @bot.command("divorcio")
 async def on_divorcio(ctx: Context):
 	nev = ctx.msg.author.nickname
-	paper = sqlite3.connect("matris.db")
+	paper = sqlite3.connect("matriz.db")
 	ku = paper.cursor()
 	ku.execute("DELETE FROM casados WHERE novio=(?)", (nev,))
 	paper.commit()
@@ -265,7 +265,7 @@ async def on_divorcio(ctx: Context):
 	
 @bot.command("casados")
 async def on_casasdes(ctx: Context):
-	ilys = sqlite3.connect("matris.db")
+	ilys = sqlite3.connect("matriz.db")
 	fant = ilys.cursor()
 	fant.execute("SELECT * FROM casados")
 	verga = fant.fetchall()
