@@ -273,4 +273,8 @@ async def on_casasdes(ctx: Context):
 	await ctx.send(celta)
 	ilys.close()
 	
+@bot.event()
+async def on_mention(ctx: Context):
+	await ctx.reply("Queee pasaaa!)
+	
 bot.start()
