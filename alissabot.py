@@ -165,7 +165,7 @@ async def on_casados(ctx: Context):
 	await ctx.send(novio + ", se quiere casar contigo " + polola + " tu aceptas? (Escribe acepto si asi lo deseas)")
 	def siono(m: Message):
 		return m.o.chatMessage.content == 'acepto'
-	marry = await bot.wait_for(check=siono)
+	marry = await bot.wait_for(check=siono, 2.5)
 	novia = marry.o.chatMessage.author.nickname
 	kunno = sqlite3.connect("matriz.db")
 	curzor = kunno.cursor()
