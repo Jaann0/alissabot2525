@@ -267,7 +267,7 @@ async def on_divorcio(ctx: Context):
 	nev = ctx.msg.author.nickname
 	paper = sqlite3.connect("matris.db")
 	ku = paper.cursor()
-	ku.execute("DELETE FROM casados WHERE novio=(?, )", (nev))
+	ku.execute("DELETE FROM casados WHERE novio=(?)", (nev))
 	paper.commit()
 	await ctx.send("El Diviorcio ha sido firmado por ambos, les deseamos suerte a ambos :(")
 	paper.close()
