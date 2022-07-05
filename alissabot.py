@@ -161,7 +161,8 @@ async def on_compat(ctx: Context):
 @bot.command("marryme")
 async def on_casados(ctx: Context):
 	novio = ctx.msg.author.nickname
-	await ctx.send(novio + ", se quiere casar contigo " + novia + " tu aceptas? (Escribe acepto si asi lo deseas)")
+	polola = ctx.msg.content[9:39]
+	await ctx.send(novio + ", se quiere casar contigo " + polola + " tu aceptas? (Escribe acepto si asi lo deseas)")
 	def siono(m: Message):
 		return m.o.chatMessage.content == 'acepto'
 	marry = await bot.wait_for(marryme=siono)
