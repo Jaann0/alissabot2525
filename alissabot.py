@@ -276,7 +276,7 @@ async def on_casasdes(ctx: Context):
 @bot.command('check')
 async def on_check(ctx: Context):
     def check(m: Message):
-        return m..o.chatMessage.content == 'Puto'
+        return m.o.chatMessage.content == 'Puto'
 
     msg = await bot.wait_for(check=check)
     await ctx.send('Ok', reply=msg.messageId)
