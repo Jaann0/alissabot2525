@@ -273,9 +273,12 @@ async def on_casasdes(ctx: Context):
 	await ctx.send(celta)
 	ilys.close()
 	
-@bot.event()
-async def on_mention(ctx: Context):
-	await ctx.reply("Queee pasaaa!")
-	await ctx.msg.extensions.replyMessage
+@bot.command('check')
+async def on_check(ctx: Context):
+    def check(m: Message):
+        return m.content == 'Sh'
+
+    msg = await bot.wait_for(check=check)
+    await ctx.send('Ok', reply=msg.messageId)
 	
 bot.start()
