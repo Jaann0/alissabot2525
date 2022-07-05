@@ -280,7 +280,7 @@ async def on_check(ctx: Context):
         return m.o.chatMessage.content == 'acepto'
 
     msg = await bot.wait_for(check=check)
-    pibe = m.o.chatMessage.author.nickname
+    pibe = msg.o.chatMessage.author.nickname
     await ctx.send('Feliz Matrimonio a ' + alfa + " y " + pibe, reply=msg.o.chatMessage.messageId)
 	
 bot.start()
