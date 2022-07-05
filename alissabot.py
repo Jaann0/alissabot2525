@@ -266,7 +266,7 @@ async def on_divorcio(ctx: Context):
 @bot.command("casados")
 async def on_casasdes(ctx: Context):
 	ilys = sqlite3.connect("matris.db")
-	fant = ily.cursor()
+	fant = ilys.cursor()
 	fant.execute("SELECT * FROM casados")
 	verga = fant.fetchall()
 	celta = " ".join(map(str, verga))
