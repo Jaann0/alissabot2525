@@ -279,6 +279,6 @@ async def on_check(ctx: Context):
         return m.o.chatMessage.content == 'Puto'
 
     msg = await bot.wait_for(check=check)
-    await ctx.send('Ok', reply=msg.messageId)
+    await ctx.send('Ok', reply=msg.o.chatMessage.messageId)
 	
 bot.start()
