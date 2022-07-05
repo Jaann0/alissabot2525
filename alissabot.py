@@ -162,14 +162,9 @@ async def on_compat(ctx: Context):
 async def on_casados(ctx: Context):
 	novio = ctx.msg.author.nickname
 	novia = ctx.msg.content[9:35]
-	clave = ctx.msg.author.uid
-	puta = ctx.get_info_link(novia)
-	potro = puta.linkInfo.objectId
-	ody = await ctx.get_info_link(soda)
-	oid = ody.linkInfo.object_name
-	kunno = sqlite3.connect("matrimoniosz.db")
+	kunno = sqlite3.connect("matris.db")
 	curzor = kunno.cursor()
-	curzor.execute("INSERT INTO casados VALUES (?,?,?,?)", (novio, novia, clave,puta))
+	curzor.execute("INSERT INTO casados VALUES (null,?,?)", (novio, novia))
 	kunno.commit()
 	kunno.close()
 	await ctx.send("Felicitaciones a " + novio + " y " + novia + "\nPor su matrimonio, hasta que el amante los separe!")
@@ -256,7 +251,7 @@ async def on_msi(ctx: Context):
 	
 @bot.command("matrimonios")
 async def on_casades(ctx: Context):
-	ily = sqlite3.connect("matrimoniosz.db")
+	ily = sqlite3.connect("matris.db")
 	fanta = ily.cursor()
 	fanta.execute("SELECT * FROM casados")
 	erga = fanta.fetchall()
