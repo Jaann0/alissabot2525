@@ -252,15 +252,6 @@ async def on_chismear(ctx: Context):
 async def on_msi(ctx: Context):
 	await ctx.send(ctx.msg.threadId)
 	
-@bot.command("matrimonios")
-async def on_casades(ctx: Context):
-	ily = sqlite3.connect("matris.db")
-	fanta = ily.cursor()
-	fanta.execute("SELECT * FROM casados")
-	erga = fanta.fetchall()
-	celta = " ".join(map(str, erga))
-	await ctx.send(celta)
-	ily.close()
 	
 @bot.command("divorcio")
 async def on_divorcio(ctx: Context):
@@ -272,5 +263,14 @@ async def on_divorcio(ctx: Context):
 	await ctx.send("El Diviorcio ha sido firmado por ambos, les deseamos suerte a ambos :(")
 	paper.close()
 	
+@bot.command("matrimonios")
+async def on_casades(ctx: Context):
+	ily = sqlite3.connect("matris.db")
+	fanta = ily.cursor()
+	fanta.execute("SELECT * FROM casados")
+	erga = fanta.fetchall()
+	celta = " ".join(map(str, erga))
+	await ctx.send(celta)
+	ily.close()
 	
 bot.start()
