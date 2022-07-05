@@ -102,7 +102,8 @@ async def on_getid(ctx: Context):
 	delta = ctx.msg.content[7:40]
 	alubia = await ctx.get_info_link(delta)
 	oid = alubia.linkInfo.objectId
-	await ctx.send(oid + "\n" + str(alubia.linkInfo.object_name))
+	villana = await ctx.get_from_id(oid)
+	await ctx.send(str(villana))
 	
 @bot.command("play")
 async def on_musica(ctx: Context):
