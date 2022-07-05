@@ -273,12 +273,14 @@ async def on_casasdes(ctx: Context):
 	await ctx.send(celta)
 	ilys.close()
 	
-@bot.command('check')
+@bot.command("casarse")
 async def on_check(ctx: Context):
+	alfa = ctx.msg.author.nickname
     def check(m: Message):
-        return m.o.chatMessage.content == 'Puto'
+        return m.o.chatMessage.content == 'acepto'
 
     msg = await bot.wait_for(check=check)
-    await ctx.send('Ok', reply=msg.o.chatMessage.messageId)
+    pibe = m.o.chatMessage.author.nickname
+    await ctx.send('Feliz Matrimonio a ' + alfa + " y " + pibe, reply=msg.o.chatMessage.messageId)
 	
 bot.start()
