@@ -99,10 +99,10 @@ async def on_video(ctx: Context):
 
 @bot.command("getid")
 async def on_getid(ctx: Context):
-	delta = ctx.msg.content[7:40]
-	alubia = await ctx.get_info_link(delta)
-	oid = alubia.linkInfo.objectId
-	raw = await ctx.get_from_id(oid)[106:160]
+	#delta = ctx.msg.content[7:40]
+	#alubia = await ctx.get_info_link(delta)
+	#oid = alubia.linkInfo.objectId
+	raw = Mention.uid
 	await ctx.send(str(raw))
 	
 @bot.command("play")
