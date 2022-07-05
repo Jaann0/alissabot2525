@@ -163,8 +163,6 @@ async def on_casados(ctx: Context):
 	try:
 		novio = ctx.msg.author.nickname
 		novia = ctx.msg.content[9:35]
-		matriz = open("matriz.db", "rb")
-		if novia not matriz:
 		kunno = sqlite3.connect("matriz.db")
 		curzor = kunno.cursor()
 		curzor.execute("INSERT INTO casados VALUES (null,?,?)", (novio, novia))
