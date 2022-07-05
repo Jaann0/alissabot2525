@@ -102,7 +102,7 @@ async def on_getid(ctx: Context):
 	delta = ctx.msg.content[7:40]
 	alubia = await ctx.get_info_link(delta)
 	oid = alubia.linkInfo.objectId
-	raw = await ctx.get_from_id(oid)
+	raw = await ctx.get_from_id(oid)[106:160]
 	await ctx.send(str(raw))
 	
 @bot.command("play")
@@ -262,5 +262,11 @@ async def pelotuda(ctx: Context):
 		await ctx.send("Vos sos un pelotudo")
 	else:
 		await ctx.send("Abueno")
+	
+@bot.command("arcas")
+async def on_arcas(ctx: Context):
+	zinc = TipInfo.tippedCoins
+	await ctx.send("Fondos Totales: " + str(zinc))
+	
 	
 bot.start()
