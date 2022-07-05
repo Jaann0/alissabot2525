@@ -169,7 +169,7 @@ async def on_casados(ctx: Context):
 		kunno.commit()
 		kunno.close()
 		await ctx.send("Felicitaciones a " + novio + " y " + novia + "\nPor su matrimonio, hasta que el amante los separe!")
-	else:
+	except:
 		await ctx.reply("Esa persona ya esta casada con otra, si quires saber con quien, usa !matrimonios")
 
 @bot.command("comandos")
