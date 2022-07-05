@@ -99,11 +99,11 @@ async def on_video(ctx: Context):
 
 @bot.command("getid")
 async def on_getid(ctx: Context):
-	#delta = ctx.msg.content[7:40]
-	#alubia = await ctx.get_info_link(delta)
-	#oid = alubia.linkInfo.objectId
-	raw = Mention.uid
-	await ctx.send(str(raw))
+	delta = ctx.msg.content[7:40]
+	alubia = await ctx.get_info_link(delta)
+	oid = alubia.linkInfo.objectId
+	tuba = await ctx.client.get_link_identify(oid)
+	await ctx.send(str(tuba))
 	
 @bot.command("play")
 async def on_musica(ctx: Context):
@@ -163,11 +163,13 @@ async def on_casados(ctx: Context):
 	novio = ctx.msg.author.nickname
 	novia = ctx.msg.content[9:35]
 	clave = ctx.msg.author.uid
+	puta = ctx.get_info_link(novia)
+	potro = puta.linkInfo.objectId
 	ody = await ctx.get_info_link(soda)
 	oid = ody.linkInfo.object_name
 	kunno = sqlite3.connect("matrimoniosz.db")
 	curzor = kunno.cursor()
-	curzor.execute("INSERT INTO casados VALUES (?,?,?)", (novio, novia, clave))
+	curzor.execute("INSERT INTO casados VALUES (?,?,?,?)", (novio, novia, clave,puta))
 	kunno.commit()
 	kunno.close()
 	await ctx.send("Felicitaciones a " + novio + " y " + novia + "\nPor su matrimonio, hasta que el amante los separe!")
@@ -211,14 +213,14 @@ async def on_weather(ctx: Context):
 async def on_avatar(alv: Context):
 	aio = alv.msg.content[6:30]
 	url = "https://k-pop.p.rapidapi.com/idols"
-	querystring = {"q":aio,"by":"Full Name","limit":"2"}
+	querystring = {"q":aio,"by":"Stage Name","limit":"2"}
 	headers = {
 		"X-RapidAPI-Key": "082395124cmsh8f011e89c74584fp1b5c87jsn52b9ca1173b4",
 		"X-RapidAPI-Host": "k-pop.p.rapidapi.com"
 	}
 	response = requests.request("GET", url, headers=headers, params=querystring)
 	bp = response.json()
-	fn = bp["data"][0]["Stage Name"]
+	fn = bp["data"][0]["Full Name"]
 	kn = bp["data"][0]["Korean Name"]
 	cum = bp["data"][0]["Date of Birth"]
 	bipl = bp["data"][0]["Birthplace"]
@@ -235,8 +237,8 @@ async def on_newchisme(ctx: Context):
 	k = lizy.cursor()
 	k.execute("INSERT INTO chismes VALUES (?,?)", (ch, prop))
 	lizy.commit
-	lizy.close
 	await ctx.send("Chsime agregado con exito!")
+	lizy.close
 
 @bot.command("chismografo")
 async def on_chismear(ctx: Context):
@@ -252,21 +254,15 @@ async def on_chismear(ctx: Context):
 async def on_msi(ctx: Context):
 	await ctx.send(ctx.msg.threadId)
 	
-@bot.command("join")
-async def on_join(ctx: Context):
-	await ctx.join_channel(1, str(ctx.msg.threadId), ctx.msg.ndcId)
-	
-@bot.command("pelotuda")
-async def pelotuda(ctx: Context):
-	if ctx.msg.author.uid in Chat.extensions.coHost:
-		await ctx.send("Vos sos un pelotudo")
-	else:
-		await ctx.send("Abueno")
-	
-@bot.command("arcas")
-async def on_arcas(ctx: Context):
-	zinc = TipInfo.tippedCoins
-	await ctx.send("Fondos Totales: " + str(zinc))
+@bot.command("matrimonios")
+async def on_casades(ctx: Context):
+	ily = sqlite3.connect("matrimoniosz.db")
+	fanta = ily.cursor()
+	fanta.execute("SELECT * FROM casados")
+	erga = fanta.fetchall()
+	celta = " ".join(map(str, erga))
+	await ctx.send(celta)
+	ily.close()
 	
 	
 bot.start()
