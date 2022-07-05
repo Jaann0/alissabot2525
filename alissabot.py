@@ -160,14 +160,17 @@ async def on_compat(ctx: Context):
 
 @bot.command("marryme")
 async def on_casados(ctx: Context):
-	novio = ctx.msg.author.nickname
-	novia = ctx.msg.content[9:35]
-	kunno = sqlite3.connect("matris.db")
-	curzor = kunno.cursor()
-	curzor.execute("INSERT INTO casados VALUES (null,?,?)", (novio, novia))
-	kunno.commit()
-	kunno.close()
-	await ctx.send("Felicitaciones a " + novio + " y " + novia + "\nPor su matrimonio, hasta que el amante los separe!")
+	try:
+		novio = ctx.msg.author.nickname
+		novia = ctx.msg.content[9:35]
+		kunno = sqlite3.connect("matris.db")
+		curzor = kunno.cursor()
+		curzor.execute("INSERT INTO casados VALUES (null,?,?)", (novio, novia))
+		kunno.commit()
+		kunno.close()
+		await ctx.send("Felicitaciones a " + novio + " y " + novia + "\nPor su matrimonio, hasta que el amante los separe!")
+	else:
+		await ctx.reply("Esa persona ya esta casada con otra, si quires saber con quien, usa !matrimonios")
 
 @bot.command("comandos")
 async def on_cmds(ctx: Context):
