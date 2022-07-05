@@ -162,13 +162,17 @@ async def on_compat(ctx: Context):
 async def on_casados(ctx: Context):
 	try:
 		novio = ctx.msg.author.nickname
-		novia = ctx.msg.content[9:35]
+		await ctx.send(novio + ", se quiere casar contigo " + novia + " tu aceptas? (Escribe acepto si asi lo deseas)")
+		def siono(m: Message):
+			return m.o.chatMessage.content == 'acepto'
+		marry = await bot.wait_for(marryme=siono)
+		novia = marry.o.chatMessage.author.nickname
 		kunno = sqlite3.connect("matriz.db")
 		curzor = kunno.cursor()
 		curzor.execute("INSERT INTO casados VALUES (null,?,?)", (novio, novia))
 		kunno.commit()
 		kunno.close()
-		await ctx.send("Felicitaciones a " + novio + " y " + novia + "\nPor su matrimonio, hasta que el amante los separe!")
+		await ctx.send("Felicitaciones a " + novio + " y " + novia + "\nPor su matrimonio, hasta que el amante los separe!", reply=msg.o.chatMessage.messageId)
 	except:
 		await ctx.reply("Esa persona ya esta casada con otra, si quires saber con quien, usa !matrimonios")
 
