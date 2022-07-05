@@ -275,7 +275,7 @@ async def on_casasdes(ctx: Context):
 	
 @bot.command("casarse")
 async def on_check(ctx: Context):
-	alfa = ctx.msg.author.nickname
+    alfa = ctx.msg.author.nickname
     def check(m: Message):
         return m.o.chatMessage.content == 'acepto'
 
