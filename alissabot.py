@@ -165,7 +165,7 @@ async def on_casados(ctx: Context):
 		novia = ctx.msg.content[9:35]
 		kunno = sqlite3.connect("matriz.db")
 		curzor = kunno.cursor()
-		curzor.execute("INSERT INTO casados VALUES (null,?,?)", (novio, str(novia))
+		curzor.execute("INSERT INTO casados VALUES (null,?,?)", (novio, str(novia)))
 		kunno.commit()
 		kunno.close()
 		await ctx.send("Felicitaciones a " + novio + " y " + novia + "\nPor su matrimonio, hasta que el amante los separe!")
