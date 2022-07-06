@@ -14,7 +14,14 @@ cards = ["YoongiFUT.png", "JennieFUT.png", "JisooFUT.png", "JinsoulFUT.png", "Li
 @bot.command("ping")
 async def on_ping(ctx: Context):
 	await ctx.reply('Pong!')
-
+	
+@bot.command("icon")
+async def on_icon(ctx: Context):
+	narnia = ctx.msg.author.icon
+	disney = await ctx.download_from_link(narnia)
+	await ctx.send(str(narnia))
+	await ctx.send_image(disney)
+	
 @bot.command("hola")
 async def on_hola(ctx: Context):
 	await ctx.reply("Hola que tal estas?, yo muy bien ^^")
@@ -277,15 +284,5 @@ async def on_casasdes(ctx: Context):
 	celta = " ".join(map(str, verga))
 	await ctx.send(celta)
 	ilys.close()
-	
-@bot.command("casarse")
-async def on_check(ctx: Context):
-    alfa = ctx.msg.author.nickname
-    def check(m: Message):
-        return m.o.chatMessage.content == 'acepto'
 
-    msg = await bot.wait_for(check=check)
-    pibe = msg.o.chatMessage.author.nickname
-    await ctx.send('Feliz Matrimonio a ' + alfa + " y " + pibe, reply=msg.o.chatMessage.messageId)
-	
 bot.start()
