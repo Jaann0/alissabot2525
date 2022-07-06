@@ -15,20 +15,22 @@ cards = ["YoongiFUT.png", "JennieFUT.png", "JisooFUT.png", "JinsoulFUT.png", "Li
 async def on_ping(ctx: Context):
 	await ctx.reply('Pong!')
 	
-@bot.command("icon")
-async def on_icon(ctx: Context):
-	narnia = ctx.msg.author.icon
-	disney = await ctx.download_from_link(narnia)
-	await ctx.send(str(narnia))
-	await ctx.send_image(disney)
-	
 @bot.command("hola")
 async def on_hola(ctx: Context):
 	await ctx.reply("Hola que tal estas?, yo muy bien ^^")
 
-#@bot.event([api.MessageType.GROUP_MEMBER_JOIN])
-#async def on_miembro_unido(ctx: Context):
-#	await ctx.send(ctx.msg.author.nickname + ", bienvenido a nuestro chat uwu, mi nombre es Alissa y estoy para servirte.")
+@bot.event([api.MessageType.GROUP_MEMBER_JOIN])
+async def on_member_join(ctx: Context):
+	narnia = ctx.msg.author.icon
+	disney = await ctx.download_from_link(narnia)
+	await ctx.send_image(disney)
+	embed = Embed(
+	object_type=0,
+	object_id=ctx.msg.author.uid,
+	title=ctx.msg.author.nickname,
+	content="Bienvenido a este hermoso chat toxico.",
+	image=disney)
+	await ctx.send(embed=embed)
 
 @bot.command("sh")
 async def on_superheroe(ctx: Context):
