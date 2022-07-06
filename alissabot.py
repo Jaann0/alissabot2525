@@ -19,7 +19,7 @@ async def on_ping(ctx: Context):
 async def on_hola(ctx: Context):
 	await ctx.reply("Hola que tal estas?, yo muy bien ^^")
 
-@bot.event(message_types=GROUP_MEMBER_JOIN)
+@bot.event([api.MessageType.GROUP_MEMBER_JOIN])
 async def on_member_join(ctx: Context):
 	narnia = ctx.msg.author.icon
 	disney = await ctx.download_from_link(narnia)
