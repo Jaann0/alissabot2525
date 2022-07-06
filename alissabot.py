@@ -182,7 +182,7 @@ async def on_casados(ctx: Context):
 		await ctx.send("Felicitaciones a " + novio + " y " + novia + "\nPor su matrimonio, hasta que el amante los separe!", reply=marry.o.chatMessage.messageId)
 		kunno.close()
 	else:
-		await ctx.send("Hubo un error, puede que la persona ya este casada, o que no acepto, incluso por que otra persona acepto.)
+		await ctx.send("Hubo un error, puede que la persona ya este casada, o que no acepto, incluso por que otra persona acepto.")
 		
 @bot.command("comandos")
 async def on_cmds(ctx: Context):
