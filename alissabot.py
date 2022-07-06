@@ -167,13 +167,16 @@ async def on_casados(ctx: Context):
 		return m.o.chatMessage.content == 'acepto'
 	marry = await bot.wait_for(check=siono, timeout=4.5)
 	novia = marry.o.chatMessage.author.nickname
-	kunno = sqlite3.connect("matriz.db")
-	curzor = kunno.cursor()
-	curzor.execute("INSERT INTO casados VALUES (null,?,?)", (novio, novia))
-	kunno.commit()
-	await ctx.send("Felicitaciones a " + novio + " y " + novia + "\nPor su matrimonio, hasta que el amante los separe!", reply=marry.o.chatMessage.messageId)
-	kunno.close()
-
+	if polola == "@" + novia:
+		kunno = sqlite3.connect("matriz.db")
+		curzor = kunno.cursor()
+		curzor.execute("INSERT INTO casados VALUES (null,?,?)", (novio, novia))
+		kunno.commit()
+		await ctx.send("Felicitaciones a " + novio + " y " + novia + "\nPor su matrimonio, hasta que el amante los separe!", reply=marry.o.chatMessage.messageId)
+		kunno.close()
+	else:
+		await ctx.send("Hubo un error, puede que la persona ya este casada, o que no acepto, incluso por que otra persona acepto.)
+		
 @bot.command("comandos")
 async def on_cmds(ctx: Context):
 	await ctx.send("[BUI]Lista de Comandos\n!ping: Usalo para saber si el bot esta activo.\n!hola: Comando para saludar al bot.\n!pokedex (nombre del pokemon): Este comando envia la imagen de dicho pokemon.\n!abrazar (@nombre de la persona): Abrazas a esa persona espcial.\n@!descargar (link del video)[PREMIUM]: Permite descargar canciones de youtube.\n!patear (@nombre de la persona): Envias una patada a esa persona especial.\n!carta: Sacas una carta al azar de un idol [Apuesta].\n!caracola (pregunta): Puedes preguntarle algo a la caracola magica.\n!compatibilidad (nombre de la persona): Puedes saber tu compatibilidad con dicha persona.")
