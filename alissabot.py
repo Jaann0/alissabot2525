@@ -25,13 +25,7 @@ async def on_member_join(ctx: Context):
 	narnia = ctx.msg.author.icon
 	disney = await ctx.download_from_link(narnia)
 	await ctx.send_image(disney)
-	embed = Embed(
-	object_type=0,
-	object_id=ctx.msg.author.uid,
-	title=ctx.msg.author.nickname,
-	content="Bienvenido a este hermoso chat toxico.",
-	image=disney)
-	await ctx.send(embed=embed)
+	await ctx.send(ctx.msg.author.nickname + " bienvenid@ a este hermoso chat toxico, que te la pases muy bien :)")
 
 @bot.command("sh")
 async def on_superheroe(ctx: Context):
