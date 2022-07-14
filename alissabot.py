@@ -94,7 +94,7 @@ async def on_song(ctx: Context):
 	else:
 		await ctx.send("Para utilizar este comando necesita ser Premium.")
 
-@bot.command("video")
+@bot.event([api.MessageType.SCREEN_ROOM_END])
 async def on_video(ctx: Context):
 	await ctx.create_channel(str(ctx.msg.threadId), ctx.msg.ndcId)
 	mp = "https://github.com/HakiBl4ck/alissabot2525/blob/main/media/319_Familiar-Wife-Poster.jpg?raw=true"
@@ -282,4 +282,9 @@ async def on_casasdes(ctx: Context):
 	await ctx.send(celta)
 	ilys.close()
 
+@bot.event([api.MessageType.CHAT_TIP])
+async def on_tipi(ctx: Context):
+	awa = ctx.msg.author.nickname
+	await send(awa + " muchas gracias por tu donacion uwu")
+	
 bot.start()
