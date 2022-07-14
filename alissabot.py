@@ -285,6 +285,6 @@ async def on_casasdes(ctx: Context):
 @bot.event([api.MessageType.CHAT_TIP])
 async def on_tipi(ctx: Context):
 	awa = ctx.msg.author.nickname
-	await send(awa + " muchas gracias por tu donacion uwu")
+	await ctx.send(awa + " muchas gracias por tu donacion uwu")
 	
 bot.start()
