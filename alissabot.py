@@ -106,7 +106,10 @@ async def on_video(ctx: Context):
 	)
 	background = await ctx.client.upload_media(image, api.ContentType.IMAGE_JPG)
 	kik = "https://github.com/HakiBl4ck/alissabot2525/blob/main/media/TWICE.mp4?raw=true"
-	await ctx.play_video(background, kik, "Twice", 199.8, str(ctx.msg.threadId), ctx.msg.ndcId)
+	await ctx.play_video(background, kik, "Twice", 199.8, ctx.msg.threadId, ctx.msg.ndcId)
+	s = await bot.wait_for(f)
+	print(s.o.channelKey)
+	await ctx.play_video_is_done(background, kik, "Twice", 199.8, ctx.msg.threadId, ctx.msg.ndcId)
 
 @bot.command("getid")
 async def on_getid(ctx: Context):
