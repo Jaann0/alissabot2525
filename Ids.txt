@@ -5,3 +5,19 @@ https://raw.githubusercontent.com/HakiBl4ck/alissabot2525/main/Concha%20tu%20mad
 https://mega.nz/file/5lI2QRSa#ekvjPBVGIflbaBAbRHCkPwFcR5feKQh42zCOTGqJFLA
 Mapa:
 https://drive.google.com/file/d/1E6T90Y3B3DHPne_CSUS8S0UpgwKO3euX/view
+
+---------------------------CELLPHONE CMDS-----------------------
+@bot.command('start')
+async def on_check(ctx: Context):
+    await ctx.join_thread(1)
+    await ctx.join_channel(5)
+
+    image = await ctx.download_from_link(
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Gull_portrait_ca_usa.jpg/1280px-Gull_portrait_ca_usa.jpg'
+    )
+    background = await ctx.client.upload_media(image, api.ContentType.IMAGE_JPG)
+
+    await ctx.play_video(background, '/storage/emulated/0/Download/video.mp4', 'video.mp4', 300)
+    s = await bot.wait_for(f)
+    print(s.o.channelKey)
+    await ctx.play_video_is_done(background, '/storage/emulated/0/Download/video.mp4', 'video.mp4', 300)
