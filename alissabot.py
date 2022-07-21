@@ -297,4 +297,8 @@ async def on_sm(ctx: Context):
 	ferb = "".join(map(str, kraft))
 	await ctx.send(ferb)
 	
+@bot.command("demo")
+async def on_demo(ctx: Context):
+	await ctx.send(str(UserProfile))
+	
 bot.start()
