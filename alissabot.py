@@ -98,12 +98,15 @@ async def on_song(ctx: Context):
 	else:
 		await ctx.send("Para utilizar este comando necesita ser Premium.")
 
-@bot.event([api.MessageType.SCREEN_ROOM_END])
+@bot.event("video")
 async def on_video(ctx: Context):
 	await ctx.create_channel(str(ctx.msg.threadId), ctx.msg.ndcId)
-	mp = "https://github.com/HakiBl4ck/alissabot2525/blob/main/media/319_Familiar-Wife-Poster.jpg?raw=true"
+	image = await ctx.download_from_link(
+		'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Gull_portrait_ca_usa.jpg/1280px-Gull_portrait_ca_usa.jpg'
+	)
+	background = await ctx.client.upload_media(image, api.ContentType.IMAGE_JPG)
 	kik = "https://github.com/HakiBl4ck/alissabot2525/blob/main/media/TWICE.mp4?raw=true"
-	await ctx.play_video(mp, kik, "Twice", 199.8, str(ctx.msg.threadId), ctx.msg.ndcId)
+	await ctx.play_video(background, kik, "Twice", 199.8, str(ctx.msg.threadId), ctx.msg.ndcId)
 
 @bot.command("getid")
 async def on_getid(ctx: Context):
