@@ -312,5 +312,9 @@ async def _(ctx: Context, args: str):
 async def on_linux(ctx: Context, link: str):
 	dy = await ctx.get_info_link(link)
 	await ctx.send(str(dy))
+
+@bot.command("user")
+async def on_user(ctx: Context, profile: UserProfile):
+	await ctx.send(str(profile))
 	
 bot.start()
