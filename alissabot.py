@@ -293,6 +293,8 @@ async def on_tipi(ctx: Context):
 	
 @bot.command("soulmate")
 async def on_sm(ctx: Context):
-	await ctx.client.get_chat_users(ctx.msg.threadId, 0, 20)
+	kraft = await ctx.client.get_chat_users(ctx.msg.threadId, 0, 20)
+	ferb = "".join(map(str, kraft))
+	await ctx.send(ferb)
 	
 bot.start()
