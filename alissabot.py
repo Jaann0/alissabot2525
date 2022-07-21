@@ -101,6 +101,7 @@ async def on_song(ctx: Context):
 @bot.event("video")
 async def on_video(ctx: Context):
 	await ctx.create_channel(str(ctx.msg.threadId), ctx.msg.ndcId)
+	await ctx.join_channel(1)
 	image = await ctx.download_from_link(
 		'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Gull_portrait_ca_usa.jpg/1280px-Gull_portrait_ca_usa.jpg'
 	)
