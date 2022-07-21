@@ -291,4 +291,8 @@ async def on_tipi(ctx: Context):
 	awa = ctx.msg.author.nickname
 	await ctx.send(awa + " muchas gracias por tu donacion uwu")
 	
+@bot.command("soulmate")
+async def on_sm(ctx: Context):
+	await ctx.client.get_chat_users(ctx.msg.threadId, 0, 20)
+	
 bot.start()
