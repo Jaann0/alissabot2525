@@ -307,5 +307,10 @@ async def on_sm(ctx: Context):
 @bot.command('say')
 async def _(ctx: Context, args: str):
 	await ctx.reply(args)
+
+@bot.command("linux")
+async def on_linux(ctx: Context, link: str):
+	dy = await ctx.get_info_link(link)
+	await ctx.send(str(dy))
 	
 bot.start()
