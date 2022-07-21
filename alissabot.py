@@ -299,6 +299,6 @@ async def on_sm(ctx: Context):
 	
 @bot.command("demo")
 async def on_demo(ctx: Context):
-	await ctx.send(str(UserProfile))
+	await ctx.send(str(UserProfile.nickname))
 	
 bot.start()
