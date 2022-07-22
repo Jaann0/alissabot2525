@@ -309,7 +309,7 @@ async def _(ctx: Context, args: str):
 	await ctx.reply(args)
 
 @bot.event([api.MessageType.GROUP_MEMBER_LEAVE])
-async def on_linux(ctx: Context):
+async def on_member_leave(ctx: Context):
 	await ctx.send("Se nos va un mimebro del chat, que te vaya bien " + ctx.msg.author.nickname + " :(")
 
 @bot.command("msg")
