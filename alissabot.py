@@ -308,13 +308,12 @@ async def on_sm(ctx: Context):
 async def _(ctx: Context, args: str):
 	await ctx.reply(args)
 
-@bot.command("linux")
-async def on_linux(ctx: Context, link: str):
-	dy = await ctx.get_info_link(link)
-	await ctx.send(str(dy))
+@bot.command([api.MessageType.GROUP_MEMBER_LEAVE])
+async def on_linux(ctx: Context):
+	await ctx.send("Se nos va un mimebro del chat, que te vaya bien " + ctx.msg.author.nickname + " :(")
 
 @bot.command("user")
-async def on_user(ctx: Context, profile: UserProfile):
-	await ctx.send(str(profile))
+async def on_user(ctx: Context, Mention: str):
+	await ctx.send(str(Mention.uid))
 	
 bot.start()
