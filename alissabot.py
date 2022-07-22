@@ -314,7 +314,7 @@ async def on_linux(ctx: Context):
 
 @bot.command("msg")
 async def on_msg(ctx: Context):
-	infod = await ctx.client.get_message_info(ctx.msg.threadId, ctx.msg.messageId)
-	await ctx.send(str(infod))
+	tabata = Account.username
+	await ctx.send(str(tabata))
 	
 bot.start()
