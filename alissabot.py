@@ -316,5 +316,25 @@ async def on_member_leave(ctx: Context):
 async def on_msg(ctx: Context):
 	tabata = Account.username
 	await ctx.send(str(tabata))
-	
+
+@bot.command("votarsi")
+async def on_voto(ctx: Context):
+  gdos = "Si"
+  v = sqlite3.connect("votaciones.db")
+  kg = v.cursor()
+  kg.execute("INSERT INTO votos VALUES (null,?)", (gdos))
+  v.commit()
+  await ctx.reply("Voto registrado!")
+  v.close()
+  
+@bot.command("votarno")
+async def on_votono(ctx: Context):
+  her
+  z = sqlite3.connect("votaciones.db")
+  km = z.cursor()
+  km.execute("INSERT INTO votos2 VALUES (null, ?)", (her))
+  z.commit()
+  await ctx.reply("Voto registrado.")
+  z.close()
+
 bot.start()
