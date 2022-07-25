@@ -360,7 +360,7 @@ async def on_pago(ctx: Context):
 		minun = int(dlc.fetchone()[0]) - debito
 		dlc.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (str(minun), sucu))
 		dlc.execute("SELECT dinero FROM boveda WHERE cuenta=(?)", (payto,))
-		plusle = dlc.fetchone()[0] + debito
+		plusle = int(dlc.fetchone()[0]) + debito
 		dlc.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (str(plusle), payto))
 		ship.commit()
 		await ctx.send("Pago realizado con exito✔️")
