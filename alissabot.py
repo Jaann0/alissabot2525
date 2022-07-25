@@ -353,7 +353,7 @@ async def on_pago(ctx: Context):
 	paypal.execute("SELECT dinero FROM boveda WHERE cuenta=(?,)", (sucu))
 	credit = paypal.fetchone()
 	gun.close()
-	if credit => int(debito):
+	if credit >= int(debito):
 		ship = sqlite3.connect("banco.db")
 		dlc = ship.cursor()
 		dlc.execute("UPDTE boveda SET dinero=(?,) WHERE cuenta=(?,)", (- debito), (sucu))
