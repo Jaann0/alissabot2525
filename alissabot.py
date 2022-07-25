@@ -317,24 +317,28 @@ async def on_msg(ctx: Context):
 	tabata = Account.username
 	await ctx.send(str(tabata))
 
-@bot.command("votarsi")
-async def on_voto(ctx: Context):
-  gdos = "Si"
-  v = sqlite3.connect("votaciones.db")
-  kg = v.cursor()
-  kg.execute("INSERT INTO votos VALUES (null,?)", (gdos))
-  v.commit()
-  await ctx.reply("Voto registrado!")
-  v.close()
-  
-@bot.command("votarno")
-async def on_votono(ctx: Context):
-  her
-  z = sqlite3.connect("votaciones.db")
-  km = z.cursor()
-  km.execute("INSERT INTO votos2 VALUES (null, ?)", (her))
-  z.commit()
-  await ctx.reply("Voto registrado.")
-  z.close()
+@bot.command("crearcuenta")
+async def on_cc(ctx: Context):
+	bono = 250
+	prop = ctx.msg.author.uid
+	prono = ctx.msg.author.nickname
+	lvl = ctx.msg.author.level
+	bbva = sqlite3.connect("banco.db")
+	kursor = bbva.cursor()
+	kursor.execute("INSERT INTO boveda VALUES (null,?,?)", (prop,bono))
+	bbva.commit()
+	await ctx.reply("Su cuenta bancaria ha sido registrada :).\nNombre: " + prono + "\nNivel de Cuenta: " + str(lvl) + "\nNumero de Cuenta: ********")
+	bbva.close()
+	
+@bot.command("dinero")
+async def on_dinero(ctx: Context):
+	dueno = ctx.msg.author.uid
+	ibai = sqlite3.connect("banco.db")
+	hbo = ibai.cursor()
+	hbo.execute("SELECT dinero FROM boveda WHERE cuenta=(?)", (dueno))
+	money = hbo.fetchone()
+	await ctx.reply("Usted tiene: " + str(money) + " eskoins")
+	ibai.close()
+
 
 bot.start()
