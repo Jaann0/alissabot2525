@@ -2,6 +2,7 @@ from edamino import Bot, Context, logger
 from edamino import api
 from edamino.objects import *
 from datetime import datetime
+import pytz
 import requests
 import json
 import sqlite3
@@ -394,7 +395,7 @@ async def on_admindar(ctx: Context):
 
 @bot.command("trabajar")
 async def on_work(ctx: Context):
-  dt = datetime.now()
+  dt = datetime.now(pytz.timezone("Etc/GMT+6"))
   loli = ["una fábrica de puros", "una productora de cine bollywood", "la casa de un idol siendo su sirviente", "mina de cabronita bien hhedionda", "el estudio de rubius, siendo su silla gamer", "una empresa de donas plagada de ratas", "una farmacia siendo la botarga que baila y jode a la gente caminando."]
   place = random.choice(loli)
   work = 150
@@ -402,7 +403,10 @@ async def on_work(ctx: Context):
     gui = ctx.msg.author.uid
     fw = sqlite3.connect("banco.db")
     dd = fw.cursor()
-    dd.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (str(work), gui))
+    fer = dd.execute("SELECT dinero FROM boveda WHERE cuenta=(?)", (gui,))
+    gb = fer.fetchone()
+    ttn = int(gb[0]) + work
+    dd.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (str(ttn), gui))
     fw.commit()
     await ctx.reply("Has trabajado en" + place + " y te han pagado 150 Eskoins.")
     fw.close()
