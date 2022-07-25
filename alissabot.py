@@ -442,7 +442,7 @@ async def on_apuesta(ctx: Context):
     trg = random.choice(f)
     if trg == cant:
       suma = int(spn) * trg
-      sa.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (str(suma), acc)
+      sa.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (str(suma), acc))
       ceo.commit()
       await ctx.reply("¡Felicidades! Ganaste " + str(suma))
       ceo.close()
