@@ -420,7 +420,7 @@ async def on_shop(ctx: Context):
   await ctx.send("[BU]Tienda Virtual Eskeler\n1: Cambias el texto del anuncio por una hora con lo que quieras poner sin romper las reglas. Costo = 500 Eskoins\n2: Te compramos el Amino+ por un mes, nosotros te pasamos las monedas. Costo = 10,000 Eskoins\nResponde con el número de la opción que quieras comprar.")
   def sio(m: Message):
     return m.o.chatMessage.content == 1 or 2 or 3
-    store = bot.wait_for(check=sio, timeout=4.5)
+    store = bot.wait_for(check=sio, timeout=10)
     if store.o.chatMessage.content == 1:
       zz = sqlite3.connect("banco.db")
       fm = zz.cursor()
