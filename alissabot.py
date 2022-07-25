@@ -429,7 +429,7 @@ async def on_shop(ctx: Context):
       mny = cv[0]
       if mny >= 500:
         valve = mny - 500
-        fm.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (str(valve), us)
+        fm.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (str(valve), us))
         zz.commit()
         await ctx.reply("Felicidades has adquirido el boleto [Cambio de Anuncio], puedes canjearlo con la anfitriona o con MAX u algun otro coanfitrion.")
         zz.close()
@@ -441,7 +441,7 @@ async def on_shop(ctx: Context):
         kas = ks[0]
         if kas >= 10000:
           koe = kas - 10000
-          pl.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (str(koe), us)
+          pl.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (str(koe), us))
           xx.commit()
           await ctx.reply("Felicidades ha adquirido un mes de Amino+, contacte a la anfitriona o a MAX para que se le entreguen las monedas.")
           xx.close()
