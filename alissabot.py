@@ -358,7 +358,7 @@ async def on_pago(ctx: Context):
 		dlc = ship.cursor()
 		dlc.execute("SELECT dinero FROM boveda WHERE cuenta=(?,)", (sucu,))
 		minun = int(dlc.fetchone()[1:3]) - debito
-		dlc.execute("UPDATE boveda SET dinero=(?,) WHERE cuenta=(?,)", (minun, sucu)
+		dlc.execute("UPDATE boveda SET dinero=(?,) WHERE cuenta=(?,)", (minun, sucu))
 		dlc.execute("SELECT dinero FROM boveda WHERE cuenta=(?,)", (payto,))
 		plusle = dlc.fetchone()[1:3] + debito
 		dlc.execute("UPDATE boveda SET dinero=(?,) WHERE cuenta=(?,)", (plusle, payto)
