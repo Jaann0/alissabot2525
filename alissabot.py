@@ -398,7 +398,7 @@ async def on_work(ctx: Context):
   loli = ["una fábrica de puros", "una productora de cine bollywood", "la casa de un idol siendo su sirviente", "mina de cabronita bien hhedionda", "el estudio de rubius, siendo su silla gamer", "una empresa de donas plagada de ratas", "una farmacia siendo la botarga que baila y jode a la gente caminando."]
   place = random.choice(loli)
   work = 150
-  id dt.hour == 14 or 20:
+  if dt.hour == 14 or 20:
     gui = ctx.msg.author.uid
     fw = sqlite3.connect("banco.db")
     dd = fw.cursor()
@@ -406,5 +406,7 @@ async def on_work(ctx: Context):
     fw.commit()
     await ctx.reply("Has trabajado en" + place + " y te han pagado 150 Eskoins.")
     fw.close()
+  else:
+    await ctx.reply("Vuelve a trabajar hasta mas tarde, que ya cerraron.")
 
 bot.start()
