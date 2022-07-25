@@ -413,10 +413,14 @@ async def on_work(ctx: Context):
   else:
     await ctx.reply("Vuelve a trabajar hasta mas tarde, que ya cerraron.")
 
-@bot.command("id")
+@bot.command("verdinero")
 async def on_id(ctx: Context):
-  a = ctx.msg.content[4:50]
-  dzc = await ctx.client.get_user_info(a)
-  await ctx.send(str(dzc))
+  a = ctx.msg.content[11:59]
+  w = sqlite3.connect("banco.db")
+  p = w.cursor()
+  p.execute("SELECT dinero FROM boveda WHERE cuenta=(?)", (a,))
+  z = p.fetchone()
+  k = z[0]
+  await ctx.send("El usuario tiene: " + k " Eskoins.")
 
 bot.start()
