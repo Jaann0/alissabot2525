@@ -374,7 +374,9 @@ async def on_admindar(ctx: Context):
 	if admin == "fc83578c-706a-44ef-bc2a-e2c119f2fe92":
 		zara = sqlite3.connect("banco.db")
 		wwe = zara.cursor()
-		wwe.execute("UPDATE boveda SET dinero=(?,) WHERE cuenta=(?,", (int(cantidad), payoneer)
+		wwe.execute("SELECT dinero FROM boveda WHERE cuenta=(?,)", (payoneer,))
+		cuantica = int(wwe.fetchone()[1:3]) + int(cantidad)
+		wwe.execute("UPDATE boveda SET dinero=(?,) WHERE cuenta=(?,", (int(cuantica), payoneer)
 		zara.commit()
 		await ctx.send("Hiciste una buena donacion")
 		zara.close()
