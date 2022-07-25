@@ -335,7 +335,7 @@ async def on_dinero(ctx: Context):
 	dueno = ctx.msg.author.uid
 	ibai = sqlite3.connect("banco.db")
 	hbo = ibai.cursor()
-	hbo.execute("SELECT dinero FROM boveda WHERE cuenta=(?,)", (dueno))
+	hbo.execute("SELECT dinero FROM boveda WHERE cuenta=(,?)", (dueno))
 	money = hbo.fetchone()
 	await ctx.reply("Usted tiene: " + str(money) + " eskoins")
 	ibai.close()
