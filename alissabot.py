@@ -119,7 +119,7 @@ async def on_getid(ctx: Context):
 	delta = ctx.msg.content[7:40]
 	alubia = await ctx.get_info_link(delta)
 	oid = alubia.linkInfo.objectId
-	tuba = await ctx.get_user_info(oid)
+	tuba = await ctx.get_user_info(user_id="0jxp4p")
 	await ctx.send(str(tuba))
 	
 @bot.command("play")
@@ -417,7 +417,7 @@ async def on_work(ctx: Context):
 async def on_shop(ctx: Context):
   us = ctx.msg.author.uid
   nam = ctx.msg.author.nickname
-  await ctx.send("[BU]Tienda Virtual Eskeler\n1: Cambias el texto del anuncio por una hora con lo que quieras poner sin romper las reglas. Costo = 500 Eskoins\n2: Te compramos el Amino+ por un mes, nosotros te pasamos las monedas. Costo = 10,000 Eskoins\nResponde con el número de la opción que quieras comprar.")
+  await ctx.send("[BU]Tienda Virtual Eskeler\n1: Cambias el texto del anuncio por una hora con lo que quieras poner sin romper las reglas. Costo = 500 Eskoins\n2: Te compramos el Amino+ por un mes, nosotros te pasamos las monedas. Costo = 10,000 Eskoins\nResponde con el número de la opción que quieras comprar.\n3: Compra Eskoins para apoyar al chat y hacer eventos interesantes como subastas, concursos y alguna otra cosa que se nos ocurra.")
   def sio(m: Message):
     return m.o.chatMessage.content == 1 or 2 or 3
     store = bot.wait_for(check=sio, timeout=10)
@@ -433,7 +433,7 @@ async def on_shop(ctx: Context):
         zz.commit()
         ctx.reply("Felicidades has adquirido el boleto [Cambio de Anuncio], puedes canjearlo con la anfitriona o con MAX u algun otro coanfitrion.")
         zz.close()
-      if store.o.chatMessage.content == 2:
+    if store.o.chatMessage.content == 2:
         xx = sqlite3.connect("banco.db")
         pl = xx.cursor()
         pl.execute("SELECT dinero FROM boveda WHERE cuenta=(?)", (us,))
@@ -445,7 +445,7 @@ async def on_shop(ctx: Context):
           xx.commit()
           ctx.reply("Felicidades ha adquirido un mes de Amino+, contacte a la anfitriona o a MAX para que se le entreguen las monedas.")
           xx.close()
-        if store.o.chatMessage.content == 3:
+      if store.o.chatMessage.content == 3:
           ctx.reply("Para comprar Eskoins contacte a MAX por mensaje privado, para llevar a cabo la transacción.\n1 Amino Coin = 20 Eskoins")
 
 bot.start()
