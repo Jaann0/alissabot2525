@@ -416,7 +416,7 @@ async def on_work(ctx: Context):
 @bot.command("id")
 async def on_id(ctx: Context):
   a = ctx.msg.content[4:50]
-  dzc = await ctx.get_user_info(a)
+  dzc = await ctx.client.get_user_info(a)
   await ctx.send(str(dzc))
 
 bot.start()
