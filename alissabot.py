@@ -438,7 +438,8 @@ async def on_apuesta(ctx: Context):
   mlb = sa.fetchone()
   gta = mlb[0]
   if gta >= spn:
-    trg = random.choice(range(1, 6)
+    f = [1, 2, 3, 4, 5, 6]
+    trg = random.choice(f)
     if trg == cant:
       suma = int(spn) * trg
       sa.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (str(suma), acc)
