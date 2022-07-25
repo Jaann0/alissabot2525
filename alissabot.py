@@ -380,7 +380,7 @@ async def on_admindar(ctx: Context):
 		wwe = zara.cursor()
 		wwe.execute("SELECT dinero FROM boveda WHERE cuenta=(?)", (payoneer,))
 		cuantica = int(wwe.fetchone()[1:3]) + int(cantidad)
-		wwe.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (int(cuantica), payoneer))
+		wwe.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (str(cuantica), payoneer))
 		zara.commit()
 		await ctx.send("Hiciste una buena donacion")
 		zara.close()
