@@ -402,7 +402,7 @@ async def on_work(ctx: Context):
     gui = ctx.msg.author.uid
     fw = sqlite3.connect("banco.db")
     dd = fw.cursor()
-    dd.execute("INSERT INTO boveda VALUES (null,?,?)", (gui, work))
+    dd.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (work, gui))
     fw.commit()
     await ctx.reply("Has trabajado en" + place + " y te han pagado 150 Eskoins.")
     fw.close()
