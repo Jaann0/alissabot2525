@@ -119,7 +119,7 @@ async def on_getid(ctx: Context):
 	delta = ctx.msg.content[7:40]
 	alubia = await ctx.get_info_link(delta)
 	oid = alubia.linkInfo.objectId
-	tuba = await ctx.client.get_from_id(oid, 0)
+	tuba = await ctx.get_user_info(oid)
 	await ctx.send(str(tuba))
 	
 @bot.command("play")
