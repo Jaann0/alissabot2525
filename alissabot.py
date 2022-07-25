@@ -431,7 +431,7 @@ async def on_shop(ctx: Context):
         valve = mny - 500
         fm.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (str(valve), us))
         zz.commit()
-        await ctx.reply("Felicidades has adquirido el boleto [Cambio de Anuncio], puedes canjearlo con la anfitriona o con MAX u algun otro coanfitrion.")
+        ctx.reply("Felicidades has adquirido el boleto [Cambio de Anuncio], puedes canjearlo con la anfitriona o con MAX u algun otro coanfitrion.")
         zz.close()
       if store.o.chatMessage.content == 2:
         xx = sqlite3.connect("banco.db")
