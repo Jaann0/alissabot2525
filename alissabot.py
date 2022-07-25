@@ -337,7 +337,7 @@ async def on_dinero(ctx: Context):
 	hbo = ibai.cursor()
 	hbo.execute("SELECT dinero FROM boveda WHERE cuenta=(?)", (dueno,))
 	money = hbo.fetchone()
-	await ctx.reply("Usted tiene: " + str(money) + " eskoins")
+	await ctx.reply("Usted tiene: " + str(money[0]) + " eskoins")
 	ibai.close()
 
 @bot.command("pagar")
