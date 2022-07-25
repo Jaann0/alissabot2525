@@ -421,6 +421,6 @@ async def on_id(ctx: Context):
   p.execute("SELECT dinero FROM boveda WHERE cuenta=(?)", (a,))
   z = p.fetchone()
   k = z[0]
-  await ctx.send("El usuario tiene: " + k " Eskoins.")
+  await ctx.send("El usuario tiene: " + k + " Eskoins.")
 
 bot.start()
