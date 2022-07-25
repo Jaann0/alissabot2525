@@ -447,7 +447,7 @@ async def on_apuesta(ctx: Context):
       await ctx.reply("¡Felicidades! Ganaste " + str(suma))
       ceo.close()
     else:
-      nk = mlb - int(spn)
+      nk = gta - int(spn)
       aq = sqlite3.connect("banco.db")
       catsu = aq.cursor()
       catsu.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (str(nk), acc))
