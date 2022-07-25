@@ -335,7 +335,7 @@ async def on_dinero(ctx: Context):
 	dueno = ctx.msg.author.uid
 	ibai = sqlite3.connect("banco.db")
 	hbo = ibai.cursor()
-	hbo.execute("SELECT dinero FROM boveda WHERE cuenta=(?)", (dueno))
+	hbo.execute("SELECT dinero FROM boveda WHERE cuenta=(?)", (dueno,))
 	money = hbo.fetchone()
 	await ctx.reply("Usted tiene: " + str(money) + " eskoins")
 	ibai.close()
@@ -350,14 +350,14 @@ async def on_pago(ctx: Context):
 	payto = alubia.linkInfo.objectId
 	gun = sqlite3.connect("banco.db")
 	paypal = gun.cursor()
-	paypal.execute("SELECT dinero FROM boveda WHERE cuenta=(?,)", (sucu))
+	paypal.execute("SELECT dinero FROM boveda WHERE cuenta=(?,)", (sucu,))
 	credit = paypal.fetchone()
 	gun.close()
 	if credit >= int(debito):
 		ship = sqlite3.connect("banco.db")
 		dlc = ship.cursor()
-		dlc.execute("UPDTE boveda SET dinero=(?,) WHERE cuenta=(?,)", (- debito), (sucu))
-		dlc.execute("UPDATE boveda SET dinero=(?,) WHERE cuenta=(?,)", (+ debito), (payto))
+		dlc.execute("UPDTE boveda SET dinero=(?,) WHERE cuenta=(?,)", (- debito,), (sucu,))
+		dlc.execute("UPDATE boveda SET dinero=(?,) WHERE cuenta=(?,)", (+ debito,), (payto,))
 		ship.commit()
 		await ctx.send("Pago realizado con exito✔️")
 		ship.close()
@@ -374,7 +374,7 @@ async def on_admindar(ctx: Context):
 	if admin == "MAX":
 		zara = sqlite3.connect("banco.db")
 		wwe = zara.cursor()
-		wwe.execute("UPDATE boveda SET dinero=(?,) WHERE cuenta=(?,", (int(cantidad)), (payoneer))
+		wwe.execute("UPDATE boveda SET dinero=(?,) WHERE cuenta=(?,", (int(cantidad,)), (payoneer,))
 		zara.commit()
 		await ctx.send("Hiciste una buena donacion")
 		zara.close()
