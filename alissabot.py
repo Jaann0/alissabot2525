@@ -361,7 +361,7 @@ async def on_pago(ctx: Context):
 		dlc.execute("UPDATE boveda SET dinero=(?,) WHERE cuenta=(?,)", (minun, sucu))
 		dlc.execute("SELECT dinero FROM boveda WHERE cuenta=(?,)", (payto,))
 		plusle = dlc.fetchone()[1:3] + debito
-		dlc.execute("UPDATE boveda SET dinero=(?,) WHERE cuenta=(?,)", (plusle, payto)
+		dlc.execute("UPDATE boveda SET dinero=(?,) WHERE cuenta=(?,)", (plusle, payto))
 		ship.commit()
 		await ctx.send("Pago realizado con exito✔️")
 		ship.close()
@@ -380,7 +380,7 @@ async def on_admindar(ctx: Context):
 		wwe = zara.cursor()
 		wwe.execute("SELECT dinero FROM boveda WHERE cuenta=(?,)", (payoneer,))
 		cuantica = int(wwe.fetchone()[1:3]) + int(cantidad)
-		wwe.execute("UPDATE boveda SET dinero=(?,) WHERE cuenta=(?,", (int(cuantica), payoneer)
+		wwe.execute("UPDATE boveda SET dinero=(?,) WHERE cuenta=(?,", (int(cuantica), payoneer))
 		zara.commit()
 		await ctx.send("Hiciste una buena donacion")
 		zara.close()
