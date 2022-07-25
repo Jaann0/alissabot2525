@@ -422,5 +422,6 @@ async def on_id(ctx: Context):
   z = p.fetchone()
   k = z[0]
   await ctx.send("El usuario tiene: " + k + " Eskoins.")
+  w.close()
 
 bot.start()
