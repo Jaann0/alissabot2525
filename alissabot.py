@@ -446,6 +446,6 @@ async def on_shop(ctx: Context):
           ctx.reply("Felicidades ha adquirido un mes de Amino+, contacte a la anfitriona o a MAX para que se le entreguen las monedas.")
           xx.close()
         if store.o.chatMessage.content == 3:
-          await ctx.reply("Para comprar Eskoins contacte a MAX por mensaje privado, para llevar a cabo la transacción.\n1 Amino Coin = 20 Eskoins")
+          ctx.reply("Para comprar Eskoins contacte a MAX por mensaje privado, para llevar a cabo la transacción.\n1 Amino Coin = 20 Eskoins")
 
 bot.start()
