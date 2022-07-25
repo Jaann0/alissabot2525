@@ -356,7 +356,7 @@ async def on_pago(ctx: Context):
 	if credit >= int(debito):
 		ship = sqlite3.connect("banco.db")
 		dlc = ship.cursor()
-		dlc.execute("UPDTE boveda SET dinero=(?,) WHERE cuenta=(?,)", (- debito, sucu)
+		dlc.execute("UPDATE boveda SET dinero=(?,) WHERE cuenta=(?,)", (- debito, sucu)
 		dlc.execute("UPDATE boveda SET dinero=(?,) WHERE cuenta=(?,)", (+ debito, payto)
 		ship.commit()
 		await ctx.send("Pago realizado con exito✔️")
