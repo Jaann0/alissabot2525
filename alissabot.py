@@ -392,6 +392,8 @@ async def on_admindar(ctx: Context):
 		zara.commit()
 		await ctx.send("Hiciste una buena donacion")
 		zara.close()
+	else:
+	  await ctx.send("No tiene los permisos necesarios.")
 
 @bot.command("trabajar")
 async def on_work(ctx: Context):
