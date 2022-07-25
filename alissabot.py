@@ -416,9 +416,10 @@ async def on_work(ctx: Context):
 @bot.command("verdinero")
 async def on_id(ctx: Context):
   a = ctx.msg.content[11:59]
+  cgt = a.linkInfo.objectId
   w = sqlite3.connect("banco.db")
   p = w.cursor()
-  p.execute("SELECT dinero FROM boveda WHERE cuenta=(?)", (a,))
+  p.execute("SELECT dinero FROM boveda WHERE cuenta=(?)", (cgt,))
   z = p.fetchone()
   k = z[0]
   await ctx.send("El usuario tiene: " + k + " Eskoins.")
