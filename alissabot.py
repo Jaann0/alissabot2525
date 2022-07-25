@@ -325,7 +325,7 @@ async def on_cc(ctx: Context):
 	lvl = ctx.msg.author.level
 	bbva = sqlite3.connect("banco.db")
 	kursor = bbva.cursor()
-	kursor.execute("INSERT INTO boveda VALUES (null,?,?)", (prop,bono))
+	kursor.execute("INSERT INTO boveda VALUES (null,?,?)", (prop, bono))
 	bbva.commit()
 	await ctx.reply("Su cuenta bancaria ha sido registrada :).\nNombre: " + prono + "\nNivel de Cuenta: " + str(lvl) + "\nNumero de Cuenta: ********")
 	bbva.close()
@@ -335,7 +335,7 @@ async def on_dinero(ctx: Context):
 	dueno = ctx.msg.author.uid
 	ibai = sqlite3.connect("banco.db")
 	hbo = ibai.cursor()
-	hbo.execute("SELECT dinero FROM boveda WHERE cuenta=(,?)", (dueno))
+	hbo.execute("SELECT dinero FROM boveda WHERE cuenta=(?)", (dueno))
 	money = hbo.fetchone()
 	await ctx.reply("Usted tiene: " + str(money) + " eskoins")
 	ibai.close()
