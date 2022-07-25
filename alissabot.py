@@ -356,8 +356,8 @@ async def on_pago(ctx: Context):
 	if credit >= int(debito):
 		ship = sqlite3.connect("banco.db")
 		dlc = ship.cursor()
-		dlc.execute("UPDTE boveda SET dinero=(?,) WHERE cuenta=(?,)", (- debito,), (sucu,))
-		dlc.execute("UPDATE boveda SET dinero=(?,) WHERE cuenta=(?,)", (+ debito,), (payto,))
+		dlc.execute("UPDTE boveda SET dinero=(?,) WHERE cuenta=(?,)", (- debito, sucu)
+		dlc.execute("UPDATE boveda SET dinero=(?,) WHERE cuenta=(?,)", (+ debito, payto)
 		ship.commit()
 		await ctx.send("Pago realizado con exito✔️")
 		ship.close()
@@ -368,13 +368,13 @@ async def on_admindar(ctx: Context):
 	jugo = sumo.split(" ")
 	cantidad = jugo[1]
 	kaka = jugo[2]
-	admin = ctx.msg.author.nickname
+	admin = ctx.msg.author.uid
 	alubias = await ctx.get_info_link(kaka)
 	payoneer = alubias.linkInfo.objectId
-	if admin == "MAX":
+	if admin == "fc83578c-706a-44ef-bc2a-e2c119f2fe92":
 		zara = sqlite3.connect("banco.db")
 		wwe = zara.cursor()
-		wwe.execute("UPDATE boveda SET dinero=(?,) WHERE cuenta=(?,", (int(cantidad,)), (payoneer,))
+		wwe.execute("UPDATE boveda SET dinero=(?,) WHERE cuenta=(?,", (int(cantidad), payoneer)
 		zara.commit()
 		await ctx.send("Hiciste una buena donacion")
 		zara.close()
