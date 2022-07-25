@@ -430,7 +430,7 @@ async def on_apuesta(ctx: Context):
   apu = ctx.msg.content
   fed = apu.split(" ")
   spn = fed[1]
-  cant = fed[2]
+  cant = int(fed[2])
   acc = ctx.msg.author.uid
   ceo = sqlite3.connect("banco.db")
   sa = ceo.cursor()
@@ -439,7 +439,7 @@ async def on_apuesta(ctx: Context):
   gta = mlb[0]
   if gta >= spn:
     trg = random.choice(range(1, 6)
-    if trg == int(cant):
+    if trg == cant:
       suma = int(spn) * trg
       sa.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (str(suma), acc)
       ceo.commit()
