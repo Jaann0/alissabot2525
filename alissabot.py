@@ -408,7 +408,7 @@ async def on_work(ctx: Context):
     ttn = int(gb[0]) + work
     dd.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (str(ttn), gui))
     fw.commit()
-    await ctx.reply("Has trabajado en" + place + " y te han pagado 150 Eskoins.")
+    await ctx.reply("Has trabajado en " + place + " y te han pagado 150 Eskoins.")
     fw.close()
   else:
     await ctx.reply("Vuelve a trabajar hasta mas tarde, que ya cerraron.")
@@ -424,5 +424,35 @@ async def on_id(ctx: Context):
   k = z[0]
   await ctx.send("El usuario tiene: " + k + " Eskoins.")
   w.close()
+
+@bot.command("apostar")
+async def on_apuesta(ctx: Context):
+  apu = ctx.msg.content
+  fed = apu.split(" ")
+  spn = fed[1]
+  cant = fed[2]
+  acc = ctx.msg.author.uid
+  ceo = sqlite3.connect("banco.db")
+  sa = ceo.cursor()
+  sa.execute("SELECT dinero FROM boveda WHERE cuenta=(?)", (acc,))
+  mlb = sa.fetchone()
+  gta = mlb[0]
+  if gta >= spn:
+    trg = random.choice(range(1, 6)
+    if trg == int(cant):
+      suma = int(spn) * trg
+      sa.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (str(suma), acc)
+      ceo.commit()
+      await ctx.reply("¡Felicidades! Ganaste " + str(suma))
+      ceo.close()
+    else:
+      nk = mlb - int(spn)
+      aq = sqlite3.connect("banco.db")
+      catsu = aq.cursor()
+      catsu.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (str(nk), acc))
+      aq.commit()
+      await ctx.reply("Desgraciadamente perdiste, por lo tanto tu dinero ya se fue.")
+      aq.close()
+    
 
 bot.start()
