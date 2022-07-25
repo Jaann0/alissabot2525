@@ -413,4 +413,9 @@ async def on_work(ctx: Context):
   else:
     await ctx.reply("Vuelve a trabajar hasta mas tarde, que ya cerraron.")
 
+@bot.command("id")
+async def on_id(ctx: Context):
+  a = ctx.msg.author.aminoId
+  await ctx.send(str(a))
+
 bot.start()
