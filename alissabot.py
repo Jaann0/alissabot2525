@@ -335,10 +335,48 @@ async def on_dinero(ctx: Context):
 	dueno = ctx.msg.author.uid
 	ibai = sqlite3.connect("banco.db")
 	hbo = ibai.cursor()
-	hbo.execute("SELECT dinero FROM boveda WHERE cuenta=(?)", (dueno))
+	hbo.execute("SELECT dinero FROM boveda WHERE cuenta=(?,)", (dueno))
 	money = hbo.fetchone()
 	await ctx.reply("Usted tiene: " + str(money) + " eskoins")
 	ibai.close()
 
+@bot.command("pagar")
+async def on_pago(ctx: Context):
+	sucu = ctx.msg.author.uid
+	data = ctx.msg.content.split(" ")
+	debito = int(data[1])
+	userto = data[2]
+	alubia = await ctx.get_info_link(userto)
+	payto = alubia.linkInfo.objectId
+	gun = sqlite3.connect("banco.db")
+	paypal = gun.cursor()
+	paypal.execute("SELECT dinero FROM boveda WHERE cuenta=(?,)", (sucu))
+	credit = paypal.fetchone()
+	gun.close()
+	if credit => int(debito):
+		ship = sqlite3.connect("banco.db")
+		dlc = ship.cursor()
+		dlc.execute("UPDTE boveda SET dinero=(?,) WHERE cuenta=(?,)", (- debito), (sucu))
+		dlc.execute("UPDATE boveda SET dinero=(?,) WHERE cuenta=(?,)", (+ debito), (payto))
+		ship.commit()
+		await ctx.send("Pago realizado con exito✔️")
+		ship.close()
+		
+@bot.command("dar")
+async def on_admindar(ctx: Context):
+	sumo = ctx.msg.content
+	jugo = sumo.split(" ")
+	cantidad = jugo[1]
+	kaka = jugo[2]
+	admin = ctx.msg.author.nickname
+	alubias = await ctx.get_info_link(kaka)
+	payoneer = alubias.linkInfo.objectId
+	if admin == "MAX":
+		zara = sqlite3.connect("banco.db")
+		wwe = zara.cursor()
+		wwe.execute("UPDATE boveda SET dinero=(?,) WHERE cuenta=(?,", (int(cantidad)), (payoneer))
+		zara.commit()
+		await ctx.send("Hiciste una buena donacion")
+		zara.close()
 
 bot.start()
