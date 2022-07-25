@@ -336,7 +336,7 @@ async def on_dinero(ctx: Context):
 	ibai = sqlite3.connect("banco.db")
 	hbo = ibai.cursor()
 	hbo.execute("SELECT dinero FROM boveda WHERE cuenta=(?)", (dueno,))
-	money = hbo.fetchone()
+	money = hbo.fetchone()[0]
 	await ctx.reply("Usted tiene: " + str(money) + " eskoins")
 	ibai.close()
 
@@ -357,10 +357,10 @@ async def on_pago(ctx: Context):
 		ship = sqlite3.connect("banco.db")
 		dlc = ship.cursor()
 		dlc.execute("SELECT dinero FROM boveda WHERE cuenta=(?)", (sucu,))
-		minun = int(dlc.fetchone()[1:3]) - debito
+		minun = int(dlc.fetchone()[0]) - debito
 		dlc.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (minun, sucu))
 		dlc.execute("SELECT dinero FROM boveda WHERE cuenta=(?)", (payto,))
-		plusle = dlc.fetchone()[1:3] + debito
+		plusle = dlc.fetchone()[0] + debito
 		dlc.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (plusle, payto))
 		ship.commit()
 		await ctx.send("Pago realizado con exito✔️")
