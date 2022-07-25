@@ -429,7 +429,7 @@ async def on_id(ctx: Context):
 async def on_apuesta(ctx: Context):
   apu = ctx.msg.content
   fed = apu.split(" ")
-  spn = fed[1]
+  spn = int(fed[1])
   cant = int(fed[2])
   acc = ctx.msg.author.uid
   ceo = sqlite3.connect("banco.db")
