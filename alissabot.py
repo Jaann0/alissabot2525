@@ -456,7 +456,7 @@ async def on_apuesta(ctx: Context):
       catsu = aq.cursor()
       catsu.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (str(nk), acc))
       aq.commit()
-      await ctx.reply("Desgraciadamente perdiste, por lo tanto tu dinero ya se fue.")
+      await ctx.reply("Desgraciadamente perdiste, por lo tanto tu dinero ya se fue!.")
       aq.close()
     
 
