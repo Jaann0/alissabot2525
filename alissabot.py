@@ -390,8 +390,8 @@ async def on_admindar(ctx: Context):
 		ser = int(cua[0]) + int(cantidad)
 		wwe.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (str(ser), payoneer))
 		zara.commit()
-		zara.close()
 		await ctx.send("Hiciste una buena donacion")
+		zara.close()
 	else:
 	  await ctx.send("No tiene los permisos necesarios.")
 
