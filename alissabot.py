@@ -440,7 +440,7 @@ async def on_apuesta(ctx: Context):
   sa.execute("SELECT dinero FROM boveda WHERE cuenta=(?)", (acc,))
   mlb = sa.fetchone()
   gta = mlb[0]
-  if gta >= spn:
+  if gta >= spn and cant != 0:
     f = [1, 2, 3, 4, 5, 6]
     trg = random.choice(f)
     if trg == cant:
