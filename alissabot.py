@@ -366,7 +366,7 @@ async def on_pago(ctx: Context):
 		dlc.execute("SELECT dinero FROM boveda WHERE cuenta=(?)", (payto,))
 		plusle = dlc.fetchone()
 		jds = plusle[0] + debito
-		dlc.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (str(jds), payto))
+		dlc.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (jds, payto))
 		ship.commit()
 		await ctx.send("Pago realizado con exito✔️")
 		ship.close()
@@ -408,7 +408,7 @@ async def on_work(ctx: Context):
     fer = dd.execute("SELECT dinero FROM boveda WHERE cuenta=(?)", (gui,))
     gb = fer.fetchone()
     ttn = int(gb[0]) + work
-    dd.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (str(ttn), gui))
+    dd.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (ttn, gui))
     fw.commit()
     await ctx.reply("Has trabajado en " + place + " y te han pagado 150 Eskoins.")
     fw.close()
@@ -446,7 +446,7 @@ async def on_apuesta(ctx: Context):
     if trg == cant:
       suma = int(spn) * trg
       sw = gta + suma
-      sa.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (str(sw), acc))
+      sa.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (sw, acc))
       ceo.commit()
       await ctx.reply("¡Felicidades! Ganaste " + str(suma))
       ceo.close()
@@ -454,7 +454,7 @@ async def on_apuesta(ctx: Context):
       nk = gta - int(spn)
       aq = sqlite3.connect("banco.db")
       catsu = aq.cursor()
-      catsu.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (str(nk), acc))
+      catsu.execute("UPDATE boveda SET dinero=(?) WHERE cuenta=(?)", (nk, acc))
       aq.commit()
       await ctx.reply("Desgraciadamente perdiste, por lo tanto tu dinero ya se fue!.")
       aq.close()
