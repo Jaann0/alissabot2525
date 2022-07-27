@@ -184,7 +184,7 @@ async def on_casados(ctx: Context):
 		return m.o.chatMessage.content == 'acepto'
 	marry = await bot.wait_for(check=siono, timeout=4.5)
 	novia = marry.o.chatMessage.author.nickname
-	if len(polola) != 0
+	if len(polola) != 0:
 		kunno = sqlite3.connect("matriz.db")
 		curzor = kunno.cursor()
 		curzor.execute("INSERT INTO casados VALUES (null,?,?)", (novio, novia))
