@@ -466,7 +466,7 @@ async def on_robo(ctx: Context):
   fea = ctx.msg.content[7:30]
   pos = ["le robo el corazon uwu a", "le robo un riñon mientras dormia a", "le robo todo el dinero a", "le robo todos los posters de BTS a"]
   fed = random.choice(pos)
-  await ctx.send(ctx.msg.author.nickname + " " + fed + " " fea)
+  await ctx.send(ctx.msg.author.nickname + " " + fed + " " + fea)
   
 @bot.command("putazo")
 async def on_ptzo(ctx: Context):
