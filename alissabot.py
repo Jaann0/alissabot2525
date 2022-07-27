@@ -12,7 +12,7 @@ import time
 bot = Bot('asterixyt@yahoo.com', 'Volcan1000', '!')
 
 premiums = ["fc83578c-706a-44ef-bc2a-e2c119f2fe92"]
-cards = ["YoongiFUT.png", "JennieFUT.png", "JisooFUT.png", "JinsoulFUT.png", "LisaFUT.png", "HeejinFUT.png", "JypFUT.png", "SmFUT.png", "KarinaFUT.png", "NingningFUT.png", "RoseFUT.png", "YgFUT.png", "XiaotingFUT.png", "ClFUT.png", "BahiyyihFUT.png", "JuyeonFUT.png", "PsyFUT.png"]
+cards = ["YoongiFUT.png", "JennieFUT.png", "JisooFUT.png", "JinsoulFUT.png", "LisaFUT.png", "HeejinFUT.png", "JypFUT.png", "SmFUT.png", "KarinaFUT.png", "NingningFUT.png", "RoseFUT.png", "YgFUT.png", "XiaotingFUT.png", "ClFUT.png", "BahiyyihFUT.png", "JuyeonFUT.png", "PsyFUT.png", "YeojinFUT.png"]
 
 @bot.event()
 async def on_ready(profile: UserProfile):
