@@ -292,8 +292,8 @@ async def on_casasdes(ctx: Context):
 	fant.execute("SELECT * FROM casados")
 	verga = fant.fetchall()
 	celta = " ".join(map(str, verga))
-	await ctx.send(celta)
 	ilys.close()
+	await ctx.send(celta)
 
 @bot.event([api.MessageType.CHAT_TIP])
 async def on_tipi(ctx: Context):
