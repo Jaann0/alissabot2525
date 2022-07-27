@@ -356,7 +356,7 @@ async def on_pago(ctx: Context):
 	credit = paypal.fetchone()
 	credito = credit[0]
 	gun.close()
-	if credito >= int(debito) and len(debito) >= 1 and len(userto) >= 1:
+	if credito >= int(debito):
 		ship = sqlite3.connect("banco.db")
 		dlc = ship.cursor()
 		dlc.execute("SELECT dinero FROM boveda WHERE cuenta=(?)", (sucu,))
