@@ -356,7 +356,7 @@ async def on_pago(ctx: Context):
 	credit = paypal.fetchone()
 	credito = credit[0]
 	gun.close()
-	if credito >= int(debito):
+	if credito >= int(debito) and len(debito) >= 1 and len(userto) >= 1:
 		ship = sqlite3.connect("banco.db")
 		dlc = ship.cursor()
 		dlc.execute("SELECT dinero FROM boveda WHERE cuenta=(?)", (sucu,))
@@ -371,7 +371,7 @@ async def on_pago(ctx: Context):
 		await ctx.send("Pago realizado con exito✔️")
 		ship.close()
 	else:
-	  await ctx.send("No tienes Eskoins suficientes.")
+	  await ctx.send("No tienes Eskoins suficientes. O cometiste un error al escribir el comando.")
 	
 @bot.command("dar")
 async def on_admindar(ctx: Context):
