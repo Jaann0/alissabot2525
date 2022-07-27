@@ -413,7 +413,7 @@ async def on_work(ctx: Context):
     await ctx.reply("Has trabajado en " + place + " y te han pagado 150 Eskoins.")
     fw.close()
   else:
-    await ctx.reply("Vuelve a trabajar hasta mas tarde, que ya cerraron. Las horas para trabajar son 3 PM y 8 PM")
+    await ctx.reply("Vuelve a trabajar hasta mas tarde, que ya cerraron. Las horas para trabajar son 6 PM (Hora CDMX)")
 
 @bot.command("verdinero")
 async def on_id(ctx: Context):
