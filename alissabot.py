@@ -440,7 +440,7 @@ async def on_apuesta(ctx: Context):
   sa.execute("SELECT dinero FROM boveda WHERE cuenta=(?)", (acc,))
   mlb = sa.fetchone()
   gta = mlb[0]
-  if gta >= spn:
+  if gta >= spn and len(spn) >= 1 and len(cant) >= 1:
     f = [1, 2, 3, 4, 5, 6]
     trg = random.choice(f)
     if trg == cant:
@@ -458,6 +458,8 @@ async def on_apuesta(ctx: Context):
       aq.commit()
       await ctx.reply("Desgraciadamente perdiste, por lo tanto tu dinero ya se fue!.")
       aq.close()
+  else:
+    await ctx.reply("Verifica si lo que escribiste esta bien.")
     
 
 bot.start()
