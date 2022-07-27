@@ -12,7 +12,7 @@ import time
 bot = Bot('asterixyt@yahoo.com', 'Volcan1000', '!')
 
 premiums = ["fc83578c-706a-44ef-bc2a-e2c119f2fe92"]
-cards = ["YoongiFUT.png", "JennieFUT.png", "JisooFUT.png", "JinsoulFUT.png", "LisaFUT.png", "HeejinFUT.png", "JypFUT.png", "SmFUT.png", "KarinaFUT.png", "NingningFUT.png", "RoseFUT.png", "YgFUT.png", "XiaotingFUT.png", "ClFUT.png", "BahiyyihFUT.png", "JuyeonFUT.png", "PsyFUT.png", "YeojinFUT.png"]
+cards = ["YoongiFUT.png", "JennieFUT.png", "JisooFUT.png", "JinsoulFUT.png", "LisaFUT.png", "HeejinFUT.png", "JypFUT.png", "SmFUT.png", "KarinaFUT.png", "NingningFUT.png", "RoseFUT.png", "YgFUT.png", "XiaotingFUT.png", "ClFUT.png", "BahiyyihFUT.png", "JuyeonFUT.png", "PsyFUT.png", "YeojinFUT.png", "VillanaFUT.png", "SuzyFUT.png", "DaniFUT.png", "MaribelFUT.png"]
 
 @bot.event()
 async def on_ready(profile: UserProfile):
@@ -460,6 +460,18 @@ async def on_apuesta(ctx: Context):
       aq.close()
   else:
     await ctx.reply("Verifica si lo que escribiste esta bien.")
-    
+
+@bot.command("robar")
+async def on_robo(ctx: Context):
+  fea = ctx.msg.content[7:30]
+  pos = ["le robo el corazon uwu a", "le robo un riñon mientras dormia a", "le robo todo el dinero a", "le robo todos los posters de BTS a"]
+  fed = random.choice(pos)
+  await ctx.send(ctx.msg.author.nickname + " " + fed + " " fea)
+  
+@bot.command("putazo")
+async def on_ptzo(ctx: Context):
+  sea = ctx.msg.content[8:30]
+  pibe = ctx.msg.author.nickname
+  await ctx.send(pibe + " le metio un santo putazo a " + sea)
 
 bot.start()
