@@ -474,4 +474,10 @@ async def on_ptzo(ctx: Context):
   pibe = ctx.msg.author.nickname
   await ctx.send(pibe + " le metio un santo putazo a " + sea)
 
+@bot.command("me")
+async def on_me(ctx: Context):
+	plagio = ctx.msg.author.nickname
+	msj = ctx.msg.content[4:230]
+	await ctx.send(plagio + " " + msj)
+
 bot.start()
