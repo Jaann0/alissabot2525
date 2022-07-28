@@ -487,4 +487,12 @@ async def on_excavo(ctx: Context):
 	plex = random.choice(objs)
 	await ctx.reply("Has desenterrado " + plex)
 
+@bot.command("hechizo")
+async def on_spell(ctx: Context):
+	usr = ctx.msg.author.nickname
+	rsu = ctx.msg.content[9:29]
+	spells = ["Legeremen", "Cruccio", "Avada Kadabra", "Tragacaracoles", "Imperio", "Expeliarmus", "Desmaio"]
+	send = random.choice(spells)
+	await ctx.send(usr + " le envio un " + send + " a " + rsu)
+
 bot.start()
