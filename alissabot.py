@@ -483,7 +483,7 @@ async def on_me(ctx: Context):
 @bot.command("excavar")
 async def on_excavo(ctx: Context):
 	man = ctx.msg.author.nickname
-	objs = ["la dignidad de Valeria!", "un satelite de Elon Musk, ahora tienes internet para siempre!", "tu dignidad, estana bien enterrada!", "un boleto redondo a Corea del Sur!", "el chiste que conto brian en el 2019, hasta que lo encontramos.", "la ropa de ezequiel!, ya no estara semidesnudo en sus fotos.", "el lightstick de BLACKPINK!", "un boleto para hacer tu propia seison de Bizarap!", "un kit para secuestrar a tu idol favorito!", "un baul con todos los stickeres viejisimos de Max!", "el talento de todos los reguetoneros!, por fin haran musica."]
+	objs = ["la dignidad de Valeria!", "un satelite de Elon Musk, ahora tienes internet para siempre!", "tu dignidad, estana bien enterrada!", "un boleto redondo a Corea del Sur!", "el chiste que conto brian en el 2019, hasta que lo encontramos.", "la ropa de ezequiel!, ya no estara semidesnudo en sus fotos.", "el lightstick de BLACKPINK!", "un boleto para hacer tu propia sesion de Bizarap!", "un kit para secuestrar a tu idol favorito!", "un baul con todos los stickeres viejisimos de Max!", "el talento de todos los reguetoneros!, por fin haran musica."]
 	plex = random.choice(objs)
 	await ctx.reply("Has desenterrado " + plex)
 
